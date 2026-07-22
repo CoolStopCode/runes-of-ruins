@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c55mlsuywiqfl"]
+
+[node name="template" type="Node2D" unique_id=609079174]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1379737664]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=475430925]
