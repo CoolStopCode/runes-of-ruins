@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg34gal7fye0"
-path="res://.godot/imported/left_rune.png-7b0c940744957a82ae218d1f26763e04.ctex"
+uid="uid://boqbdxlhia1lx"
+path="res://.godot/imported/TalkBox_16x16-fill.png-f879821d431c8feb6c66c81e05fc5a88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/runes/left_rune.png"
-dest_files=["res://.godot/imported/left_rune.png-7b0c940744957a82ae218d1f26763e04.ctex"]
+source_file="res://assets/GUI_Pack/Containers/TalkBox_16x16-fill.png"
+dest_files=["res://.godot/imported/TalkBox_16x16-fill.png-f879821d431c8feb6c66c81e05fc5a88.ctex"]
 
 [params]
 

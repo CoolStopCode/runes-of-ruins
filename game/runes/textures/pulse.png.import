@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b23pm1053u1c7"
-path="res://.godot/imported/jump_rune.png-e88ed453016152b23dccd95364a218f4.ctex"
+uid="uid://16vyjvptjycy"
+path="res://.godot/imported/pulse.png-a908427e325525705e3685b6f9204b8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/runes/jump_rune.png"
-dest_files=["res://.godot/imported/jump_rune.png-e88ed453016152b23dccd95364a218f4.ctex"]
+source_file="res://game/runes/textures/pulse.png"
+dest_files=["res://.godot/imported/pulse.png-a908427e325525705e3685b6f9204b8c.ctex"]
 
 [params]
 

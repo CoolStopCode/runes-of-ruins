@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cotxe8tg7w1st"
-path="res://.godot/imported/dash_right_rune.png-bf674f452df246fe6665a178d9c4877a.ctex"
+uid="uid://dku6q1ndt8l4r"
+path="res://.godot/imported/TalkBox_16x16-export.png-d34bbb6a6ea0d9eaeb0715c4583fd7ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/runes/dash_right_rune.png"
-dest_files=["res://.godot/imported/dash_right_rune.png-bf674f452df246fe6665a178d9c4877a.ctex"]
+source_file="res://assets/GUI_Pack/Containers/TalkBox_16x16-export.png"
+dest_files=["res://.godot/imported/TalkBox_16x16-export.png-d34bbb6a6ea0d9eaeb0715c4583fd7ee.ctex"]
 
 [params]
 
