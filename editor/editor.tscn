@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://boqbdxlhia1lx" path="res://editor/gui/box_fill.png" id="1_ycap1"]
 [ext_resource type="PackedScene" uid="uid://dtto1rvc80h7c" path="res://editor/palette/palette_rune_instance.tscn" id="2_j82do"]
 [ext_resource type="PackedScene" uid="uid://bfwgwsitsq6fi" path="res://editor/workspace/workspace_rune_instance.tscn" id="3_6j37k"]
-[ext_resource type="Resource" uid="uid://brxiesa0d7kea" path="res://data/palette.tres" id="4_6hpnh"]
+[ext_resource type="Resource" uid="uid://brxiesa0d7kea" path="res://data/world_data/world1/palette.tres" id="4_6hpnh"]
 [ext_resource type="PackedScene" uid="uid://djq8pjw586hia" path="res://editor/mouse/mouse_rune_instance.tscn" id="6_swf4p"]
 
 [node name="editor" type="Control" unique_id=2121415953 node_paths=PackedStringArray("workspace", "palettespace", "mouse")]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WorldData" format=3 uid="uid://cjpit0lygspfj"]
+
+[ext_resource type="PackedScene" uid="uid://c8u7uhcepvfut" path="res://data/world_data/world1/level.tscn" id="1_a5rme"]
+[ext_resource type="Script" uid="uid://d2ev3bj2sodq0" path="res://world/world_data.gd" id="1_crtr3"]
+[ext_resource type="Resource" uid="uid://brxiesa0d7kea" path="res://data/world_data/world1/palette.tres" id="2_0l1oo"]
+
+[resource]
+script = ExtResource("1_crtr3")
+palette = ExtResource("2_0l1oo")
+level = ExtResource("1_a5rme")
+metadata/_custom_type_script = "uid://d2ev3bj2sodq0"

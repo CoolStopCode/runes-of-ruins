@@ -28,6 +28,7 @@ window/stretch/aspect="expand"
 
 folder_colors={
 "res://assets/": "green",
+"res://clock/": "pink",
 "res://core/": "yellow",
 "res://data/": "purple",
 "res://editor/": "red",

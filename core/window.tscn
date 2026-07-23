@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cpdu5j04iu3m1"]
 
+[ext_resource type="Script" uid="uid://dg0gyekodfbre" path="res://core/window.gd" id="1_65v70"]
 [ext_resource type="PackedScene" uid="uid://bxmmt70w8rykj" path="res://editor/editor.tscn" id="1_754mt"]
+[ext_resource type="PackedScene" uid="uid://dmimtcmve3rqk" path="res://world/world.tscn" id="1_lm807"]
+[ext_resource type="PackedScene" uid="uid://coi5rre8sx8ex" path="res://clock/clock.tscn" id="4_fetnt"]
 
 [node name="window" type="Control" unique_id=212024242]
 layout_mode = 3
@@ -9,6 +12,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_65v70")
+
+[node name="world" parent="." unique_id=1043737338 instance=ExtResource("1_lm807")]
 
 [node name="editor" parent="." unique_id=2121415953 instance=ExtResource("1_754mt")]
 layout_mode = 1
+
+[node name="clock" parent="." unique_id=1337516601 instance=ExtResource("4_fetnt")]

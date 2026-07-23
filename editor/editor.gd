@@ -1,3 +1,4 @@
+class_name Editor
 extends Control
 
 @export_category("Nodes")
@@ -21,7 +22,10 @@ const workspace_start_pos : int = 2
 
 var slide_tween : Tween
 
-func build(palette : Palette, workspace_length : int):
+func load_from_world_data(world_data : WorldData):
+	var palette : Palette = world_data.palette
+	var workspace_length : int = world_data.workspace_length
+	
 	workspace_index = 0
 	if slide_tween: slide_tween.stop()
 	workspace.position.y = workspace_start_pos
@@ -104,11 +108,8 @@ func pulse():
 	slide_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	slide_tween.tween_property(workspace, "position:y", workspace_start_pos - workspace_spacing * workspace_index, 0.5)
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		pulse()
-	if Input.is_action_just_pressed("ui_down"):
-		build(test_palette, 100)
-
-func _ready() -> void:
-	build(test_palette, 100)
+#func _input(event: InputEvent) -> void:
+	#if Input.is_action_just_pressed("ui_accept"):
+		#pulse()
+	#if Input.is_action_just_pressed("ui_down"):
+		#build(test_palette, 100)
