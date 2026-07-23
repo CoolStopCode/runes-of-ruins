@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dms8nnyekmhx8"]
+
+[ext_resource type="FontFile" uid="uid://d15qaxkipuubc" path="res://assets/font/pixuff.ttf" id="1_q0v7v"]
+
+[resource]
+font = ExtResource("1_q0v7v")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)

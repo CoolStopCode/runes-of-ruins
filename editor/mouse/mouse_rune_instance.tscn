@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://djq8pjw586hia"]
+
+[ext_resource type="Script" uid="uid://cm3wxd01w1jdg" path="res://editor/mouse/mouse_rune_instance.gd" id="1_412s1"]
+[ext_resource type="Texture2D" uid="uid://b23pm1053u1c7" path="res://data/rune_textures/jump_rune.png" id="2_te77i"]
+[ext_resource type="Texture2D" uid="uid://dkps0cr75pvxa" path="res://editor/outline.png" id="3_qq7a0"]
+
+[node name="mouse_rune_instance" type="Control" unique_id=805403370 node_paths=PackedStringArray("texture")]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_412s1")
+texture = NodePath("texture")
+
+[node name="texture" type="TextureRect" parent="." unique_id=1382837885]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_te77i")
+
+[node name="outline" type="TextureRect" parent="." unique_id=62802191]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qq7a0")

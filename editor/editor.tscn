@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bxmmt70w8rykj"]
+
+[ext_resource type="Script" uid="uid://dggr6a2jalxqy" path="res://editor/editor.gd" id="1_er7c6"]
+[ext_resource type="Texture2D" uid="uid://boqbdxlhia1lx" path="res://editor/gui/box_fill.png" id="1_ycap1"]
+[ext_resource type="PackedScene" uid="uid://dtto1rvc80h7c" path="res://editor/palette/palette_rune_instance.tscn" id="2_j82do"]
+[ext_resource type="PackedScene" uid="uid://bfwgwsitsq6fi" path="res://editor/workspace/workspace_rune_instance.tscn" id="3_6j37k"]
+[ext_resource type="Resource" uid="uid://brxiesa0d7kea" path="res://data/palette.tres" id="4_6hpnh"]
+[ext_resource type="PackedScene" uid="uid://djq8pjw586hia" path="res://editor/mouse/mouse_rune_instance.tscn" id="6_swf4p"]
+
+[node name="editor" type="Control" unique_id=2121415953 node_paths=PackedStringArray("workspace", "palettespace", "mouse")]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_er7c6")
+workspace = NodePath("Control/workspace")
+palettespace = NodePath("palettespace")
+mouse = NodePath("mouse_rune_instance")
+palette_rune_instance_scene = ExtResource("2_j82do")
+workspace_rune_instance_scene = ExtResource("3_6j37k")
+test_palette = ExtResource("4_6hpnh")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1558344756]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ycap1")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Control" type="Control" parent="." unique_id=971943615]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = 4.0
+offset_right = -6.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="workspace" type="GridContainer" parent="Control" unique_id=1575460426]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 2
+
+[node name="palettespace" type="GridContainer" parent="." unique_id=255503151]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 6.0
+offset_right = -24.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/v_separation = 2
+
+[node name="palette_rune_instance" parent="palettespace" unique_id=2108183118 instance=ExtResource("2_j82do")]
+layout_mode = 2
+
+[node name="palette_rune_instance2" parent="palettespace" unique_id=302774700 instance=ExtResource("2_j82do")]
+layout_mode = 2
+
+[node name="mouse_rune_instance" parent="." unique_id=805403370 instance=ExtResource("6_swf4p")]
+visible = false
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0

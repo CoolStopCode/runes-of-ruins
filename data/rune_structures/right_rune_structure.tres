@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RightRuneStructure" format=3 uid="uid://5pw4a3w4gnq7"]
+
+[ext_resource type="Script" uid="uid://bde2cnlpiw5eo" path="res://data/runes/right_rune_structure.gd" id="1_plh2e"]
+[ext_resource type="Texture2D" uid="uid://cg34gal7fye0" path="res://data/rune_textures/move_right_rune.png" id="2_admuo"]
+
+[resource]
+script = ExtResource("1_plh2e")
+texture = ExtResource("2_admuo")
+metadata/_custom_type_script = "uid://bde2cnlpiw5eo"

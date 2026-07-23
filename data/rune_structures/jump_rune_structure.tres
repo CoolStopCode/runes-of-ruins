@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="JumpRuneStructure" format=3 uid="uid://biy1hjhyfllp0"]
+
+[ext_resource type="Script" uid="uid://bkv6hirtg5vd" path="res://data/runes/jump_rune_structure.gd" id="1_21lur"]
+[ext_resource type="Texture2D" uid="uid://b23pm1053u1c7" path="res://data/rune_textures/jump_rune.png" id="2_e3o4w"]
+
+[resource]
+script = ExtResource("1_21lur")
+texture = ExtResource("2_e3o4w")
+metadata/_custom_type_script = "uid://bkv6hirtg5vd"
