@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://oxsj0ypia0bp"]
 
-[ext_resource type="LabelSettings" uid="uid://c5nb8xfampr80" path="res://assets/font/pixuff.tres" id="1_754mt"]
+[ext_resource type="PackedScene" uid="uid://c55mlsuywiqfl" path="res://game/levels/template.tscn" id="1_lm807"]
+[ext_resource type="Texture2D" uid="uid://dwjg71c8idl4" path="res://assets/GUI_Pack/Containers/TalkBox_16x16.png" id="2_lm807"]
 
 [node name="window" type="Control" unique_id=661462350]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,9 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="game" type="CanvasLayer" parent="." unique_id=1880956203]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="game" unique_id=79500011]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=79500011]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,18 +22,34 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="game/SubViewportContainer" unique_id=1868129456]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1868129456]
 handle_input_locally = false
+canvas_item_default_texture_filter = 4
+canvas_item_default_texture_repeat = 3
 size = Vector2i(184, 144)
+size_2d_override = Vector2i(184, 144)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="ColorRect" type="ColorRect" parent="game/SubViewportContainer/SubViewport" unique_id=1036508126]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport" unique_id=1682646997]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1691.0
+offset_top = -1242.0
+offset_right = 3823.0
+offset_bottom = 1331.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0, 0, 1)
+color = Color(0.37364775, 0.4350362, 0.5067812, 1)
+
+[node name="template" parent="SubViewportContainer/SubViewport" unique_id=609079174 instance=ExtResource("1_lm807")]
+texture_filter = 1
+position = Vector2(92, 73)
+
+[node name="game" type="CanvasLayer" parent="." unique_id=1880956203]
 
 [node name="moves" type="CanvasLayer" parent="." unique_id=2014443907]
 
@@ -46,19 +63,17 @@ offset_left = -72.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="moves/Control" unique_id=2048543338]
-layout_mode = 1
-anchors_preset = 15
+[node name="NinePatchRect" type="NinePatchRect" parent="moves" unique_id=806744043]
+texture_filter = 1
+anchors_preset = 11
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
+offset_left = -72.0
+grow_horizontal = 0
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="moves/Control" unique_id=1555995580]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 7.0
-offset_right = 66.0
-offset_bottom = 30.0
-text = "Moves"
-label_settings = ExtResource("1_754mt")
+texture = ExtResource("2_lm807")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16

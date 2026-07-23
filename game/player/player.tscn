@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://b8ywv6xej2pi2"]
+
+[ext_resource type="Texture2D" uid="uid://di5j1qp2h6pyx" path="res://game/player/idle.png" id="1_8soms"]
+[ext_resource type="Script" uid="uid://da1k7q8jao20q" path="res://game/player/player.gd" id="1_a4w0n"]
+[ext_resource type="Texture2D" uid="uid://b2o6g5nrpaljb" path="res://game/player/jump.png" id="2_a4w0n"]
+[ext_resource type="Texture2D" uid="uid://c1b6xciite1ex" path="res://game/player/walk.png" id="3_5fytw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ste8"]
+atlas = ExtResource("1_8soms")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anr75"]
+atlas = ExtResource("1_8soms")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epvkq"]
+atlas = ExtResource("2_a4w0n")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ghna"]
+atlas = ExtResource("2_a4w0n")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0mij"]
+atlas = ExtResource("2_a4w0n")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv2nh"]
+atlas = ExtResource("3_5fytw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n270p"]
+atlas = ExtResource("3_5fytw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m3rnk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ste8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anr75")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epvkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ghna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0mij")
+}],
+"loop": 0,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv2nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n270p")
+}],
+"loop": 0,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="player" type="Node2D" unique_id=1333002080 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_a4w0n")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=440053540]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_m3rnk")
+animation = &"idle"
