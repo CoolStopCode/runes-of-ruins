@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6g3v5q062aag"
-path="res://.godot/imported/outline.png-19ca6391b965786822825c32872abf78.ctex"
+uid="uid://dw043jxebqvy4"
+path="res://.godot/imported/move_left_particle.png-53a3be3d121ea4c9d5cb58de7c236563.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://editor/outline.png"
-dest_files=["res://.godot/imported/outline.png-19ca6391b965786822825c32872abf78.ctex"]
+source_file="res://data/rune_textures/move_left_particle.png"
+dest_files=["res://.godot/imported/move_left_particle.png-53a3be3d121ea4c9d5cb58de7c236563.ctex"]
 
 [params]
 

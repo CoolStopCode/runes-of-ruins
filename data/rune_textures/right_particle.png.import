@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6g3v5q062aag"
-path="res://.godot/imported/outline.png-19ca6391b965786822825c32872abf78.ctex"
+uid="uid://ktrpdvi8nxck"
+path="res://.godot/imported/right_particle.png-1cdc590af609980209dce394313a3553.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://editor/outline.png"
-dest_files=["res://.godot/imported/outline.png-19ca6391b965786822825c32872abf78.ctex"]
+source_file="res://data/rune_textures/right_particle.png"
+dest_files=["res://.godot/imported/right_particle.png-1cdc590af609980209dce394313a3553.ctex"]
 
 [params]
 

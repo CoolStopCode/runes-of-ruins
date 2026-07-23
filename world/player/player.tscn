@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://bsgxuod0d51e1"]
 
 [ext_resource type="Script" uid="uid://b7cjuh0fomya6" path="res://world/player/player.gd" id="1_yynsy"]
+[ext_resource type="SpriteFrames" uid="uid://nha8vawwk6jq" path="res://world/player/sprite_frames.tres" id="2_bvkkv"]
 
 [node name="player" type="Node2D" unique_id=1974678029]
 script = ExtResource("1_yynsy")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=559744575]
+
+[node name="CharacterBody2D" type="AnimatedSprite2D" parent="." unique_id=1325220886]
+sprite_frames = ExtResource("2_bvkkv")
+animation = &"idle"

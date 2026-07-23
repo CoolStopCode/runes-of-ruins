@@ -18,7 +18,7 @@ var palette_rune_instances : Array[PaletteRuneInstance]
 @export var test_palette : Palette
 
 const workspace_spacing : int = 18
-const workspace_start_pos : int = 2
+const workspace_start_pos : int = 1
 
 var slide_tween : Tween
 
@@ -92,21 +92,24 @@ func _process(delta: float) -> void:
 	if mouse.active:
 		var mouse_position := get_global_mouse_position()
 		for workspace_rune_instance in get_top_workspace_rune_instances():
-			if workspace_rune_instance.get_global_rect().has_point(mouse_position):
-				workspace_rune_instance.outline.show()
-			else:
-				workspace_rune_instance.outline.hide()
+			if not workspace_rune_instance.executed:
+				if workspace_rune_instance.get_global_rect().has_point(mouse_position):
+					workspace_rune_instance.outline.show()
+				else:
+					workspace_rune_instance.outline.hide()
 
 func clock():
-	#workspace_rune_instances[workspace_index].rune_structure.execute(player)
+	workspace_rune_instances[workspace_index].execute(player)
+
+func half_clock():
 	workspace_index += 1
-	
 	for workspace_rune_instance in get_top_workspace_rune_instances():
 		workspace_rune_instance.hovering = false
 		workspace_rune_instance.outline.hide()
 	slide_tween = get_tree().create_tween()
 	slide_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	slide_tween.tween_property(workspace, "position:y", workspace_start_pos - workspace_spacing * workspace_index, 0.5)
+	slide_tween.tween_property(workspace, "position:y", workspace_start_pos - workspace_spacing * workspace_index, 0.2)
+
 
 #func _input(event: InputEvent) -> void:
 	#if Input.is_action_just_pressed("ui_accept"):

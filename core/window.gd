@@ -11,7 +11,9 @@ func setup(world_data : WorldData):
 	world.load_from_world_data(world_data)
 	editor.load_from_world_data(world_data)
 	clock.load_from_world_data(world_data)
+	editor.player = world.player
 	clock.clock.connect(editor.clock)
+	clock.half_clock.connect(editor.half_clock)
 	setup_signal.emit()
 
 func _input(event: InputEvent) -> void:

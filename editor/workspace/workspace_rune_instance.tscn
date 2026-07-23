@@ -3,33 +3,104 @@
 [ext_resource type="Script" uid="uid://cet4qqmntjuu" path="res://editor/workspace/workspace_rune_instance.gd" id="1_3n74r"]
 [ext_resource type="Texture2D" uid="uid://b23pm1053u1c7" path="res://data/rune_textures/jump_rune.png" id="1_mp2bb"]
 [ext_resource type="Texture2D" uid="uid://j6lr3uusy1w5" path="res://editor/workspace/empty_rune.png" id="2_fj1eq"]
-[ext_resource type="Texture2D" uid="uid://dkps0cr75pvxa" path="res://editor/outline.png" id="4_n1dx6"]
+[ext_resource type="Texture2D" uid="uid://b6g3v5q062aag" path="res://editor/outline.png" id="4_n1dx6"]
+[ext_resource type="Texture2D" uid="uid://s1u8vn6416jh" path="res://editor/workspace/effect.png" id="5_teftx"]
 
-[node name="workspace_rune_instance" type="Control" unique_id=356514481 node_paths=PackedStringArray("texture", "outline")]
-custom_minimum_size = Vector2(16, 16)
+[sub_resource type="Curve" id="Curve_n1dx6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.72422683, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n1dx6"]
+curve = SubResource("Curve_n1dx6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m3rnk"]
+lifetime_randomness = 0.43
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 4, 0)
+direction = Vector3(0, -1, 0)
+spread = 40.0
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 40, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_n1dx6")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+
+[node name="workspace_rune_instance" type="Control" unique_id=356514481 node_paths=PackedStringArray("texture", "outline", "effect", "particles")]
+custom_minimum_size = Vector2(18, 18)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 16.0
-offset_bottom = 16.0
+offset_right = 18.0
+offset_bottom = 18.0
 script = ExtResource("1_3n74r")
 texture = NodePath("texture")
 outline = NodePath("outline")
+effect = NodePath("effect")
 empty_texture = ExtResource("2_fj1eq")
+particles = NodePath("GPUParticles2D")
 
 [node name="texture" type="TextureRect" parent="." unique_id=733602141]
 texture_filter = 1
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_mp2bb")
 
 [node name="outline" type="TextureRect" parent="." unique_id=1680882455]
 visible = false
 texture_filter = 1
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_n1dx6")
+
+[node name="effect" type="TextureRect" parent="." unique_id=1880870307]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("5_teftx")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=251276963]
+position = Vector2(9, 9)
+emitting = false
+amount = 16
+lifetime = 1.48
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_m3rnk")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="LeftRuneStructure" format=3 uid="uid://cgkj65t5bf2uj"]
 
+[ext_resource type="Texture2D" uid="uid://dw043jxebqvy4" path="res://data/rune_textures/move_left_particle.png" id="1_ajnd1"]
 [ext_resource type="Script" uid="uid://ce1o7stpp87ao" path="res://data/runes/left_rune_structure.gd" id="1_e5rt5"]
 [ext_resource type="Texture2D" uid="uid://bhkgeukdirwbe" path="res://data/rune_textures/move_left_rune.png" id="2_p4cas"]
 
 [resource]
 script = ExtResource("1_e5rt5")
 texture = ExtResource("2_p4cas")
+particle_texture = ExtResource("1_ajnd1")
 metadata/_custom_type_script = "uid://ce1o7stpp87ao"
