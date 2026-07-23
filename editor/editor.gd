@@ -97,7 +97,7 @@ func _process(delta: float) -> void:
 			else:
 				workspace_rune_instance.outline.hide()
 
-func pulse():
+func clock():
 	#workspace_rune_instances[workspace_index].rune_structure.execute(player)
 	workspace_index += 1
 	

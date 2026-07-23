@@ -2,5 +2,8 @@
 
 [ext_resource type="Script" uid="uid://3xgg2eju4dsy" path="res://clock/clock.gd" id="1_vx6em"]
 
-[node name="clock" type="Node" unique_id=1337516601]
+[node name="clock" type="Node" unique_id=1337516601 node_paths=PackedStringArray("audio_player")]
 script = ExtResource("1_vx6em")
+audio_player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1882444411]

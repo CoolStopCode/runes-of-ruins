@@ -3,9 +3,12 @@
 [ext_resource type="Script" uid="uid://dg0gyekodfbre" path="res://core/window.gd" id="1_65v70"]
 [ext_resource type="PackedScene" uid="uid://bxmmt70w8rykj" path="res://editor/editor.tscn" id="1_754mt"]
 [ext_resource type="PackedScene" uid="uid://dmimtcmve3rqk" path="res://world/world.tscn" id="1_lm807"]
+[ext_resource type="Script" uid="uid://d2ev3bj2sodq0" path="res://world/world_data.gd" id="2_0wi6e"]
+[ext_resource type="Resource" uid="uid://cjpit0lygspfj" path="res://data/world_data/world1/world_data.tres" id="3_55fe4"]
 [ext_resource type="PackedScene" uid="uid://coi5rre8sx8ex" path="res://clock/clock.tscn" id="4_fetnt"]
+[ext_resource type="PackedScene" uid="uid://bsgxuod0d51e1" path="res://world/player/player.tscn" id="5_55fe4"]
 
-[node name="window" type="Control" unique_id=212024242]
+[node name="window" type="Control" unique_id=212024242 node_paths=PackedStringArray("world", "editor", "clock")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,8 +16,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_65v70")
+world_datas = Array[ExtResource("2_0wi6e")]([ExtResource("3_55fe4")])
+world = NodePath("world")
+editor = NodePath("editor")
+clock = NodePath("clock")
 
 [node name="world" parent="." unique_id=1043737338 instance=ExtResource("1_lm807")]
+player_scene = ExtResource("5_55fe4")
 
 [node name="editor" parent="." unique_id=2121415953 instance=ExtResource("1_754mt")]
 layout_mode = 1
