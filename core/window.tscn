@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://oxsj0ypia0bp"]
 
-[ext_resource type="PackedScene" uid="uid://c55mlsuywiqfl" path="res://game/levels/template.tscn" id="1_lm807"]
+[ext_resource type="Script" uid="uid://c35dxwwq26lbj" path="res://core/sub_viewport.gd" id="1_ukoc7"]
 [ext_resource type="Texture2D" uid="uid://boqbdxlhia1lx" path="res://assets/GUI_Pack/Containers/TalkBox_16x16-fill.png" id="2_fetnt"]
 [ext_resource type="Texture2D" uid="uid://dwjg71c8idl4" path="res://assets/GUI_Pack/Containers/TalkBox_16x16.png" id="2_lm807"]
 [ext_resource type="Script" uid="uid://xc86rnc676rp" path="res://game/runes/manager/rune_list.gd" id="3_0wi6e"]
@@ -10,18 +10,26 @@
 [ext_resource type="Script" uid="uid://dkbmtm1s4thqu" path="res://game/runes/classes/move_left_rune.gd" id="5_5hih0"]
 [ext_resource type="Script" uid="uid://dvm8ssvnb2php" path="res://game/runes/classes/move_right_rune.gd" id="6_5hih0"]
 [ext_resource type="Script" uid="uid://05fsnjlpmpve" path="res://game/runes/classes/jump_rune.gd" id="6_ifpnf"]
-[ext_resource type="Texture2D" uid="uid://b3cxe1dyt85j6" path="res://game/runes/textures/empty.png" id="9_ifpnf"]
+[ext_resource type="Texture2D" uid="uid://bhkgeukdirwbe" path="res://game/runes/textures/move_left_rune.png" id="6_pco88"]
+[ext_resource type="Texture2D" uid="uid://cg34gal7fye0" path="res://game/runes/textures/move_right_rune.png" id="8_ukoc7"]
+[ext_resource type="Texture2D" uid="uid://b23pm1053u1c7" path="res://game/runes/textures/jump_rune.png" id="10_iry3k"]
+[ext_resource type="PackedScene" uid="uid://btq5fdp2sw5jt" path="res://game/runes/classes/rune_instance.tscn" id="11_ukoc7"]
+[ext_resource type="PackedScene" uid="uid://ls3p3ug83mkr" path="res://game/runes/manager/pulse.tscn" id="13_iry3k"]
+[ext_resource type="PackedScene" uid="uid://dxhn6d6sftxg" path="res://game/runes/manager/empty_slot.tscn" id="14_ukoc7"]
 
 [sub_resource type="Resource" id="Resource_55fe4"]
 script = ExtResource("5_5hih0")
+texture = ExtResource("6_pco88")
 metadata/_custom_type_script = "uid://dkbmtm1s4thqu"
 
 [sub_resource type="Resource" id="Resource_ifpnf"]
 script = ExtResource("6_5hih0")
+texture = ExtResource("8_ukoc7")
 metadata/_custom_type_script = "uid://dvm8ssvnb2php"
 
 [sub_resource type="Resource" id="Resource_7g3ig"]
 script = ExtResource("6_ifpnf")
+texture = ExtResource("10_iry3k")
 metadata/_custom_type_script = "uid://05fsnjlpmpve"
 
 [node name="window" type="Control" unique_id=661462350]
@@ -51,6 +59,7 @@ size = Vector2i(184, 144)
 size_2d_override = Vector2i(184, 144)
 size_2d_override_stretch = true
 render_target_update_mode = 4
+script = ExtResource("1_ukoc7")
 
 [node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport" unique_id=1682646997]
 anchors_preset = 8
@@ -65,10 +74,6 @@ offset_bottom = 1331.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.37364775, 0.4350362, 0.5067812, 1)
-
-[node name="template" parent="SubViewportContainer/SubViewport" unique_id=609079174 instance=ExtResource("1_lm807")]
-texture_filter = 1
-position = Vector2(92, 73)
 
 [node name="game" type="CanvasLayer" parent="." unique_id=1880956203]
 
@@ -100,16 +105,20 @@ patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
-[node name="rune_list" type="Control" parent="moves/Control" unique_id=1575175207]
+[node name="rune_list" type="Control" parent="moves/Control" unique_id=1575175207 node_paths=PackedStringArray("slots")]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 24.0
 offset_top = 6.0
-offset_right = 43.0
+offset_right = 44.0
 grow_vertical = 2
 script = ExtResource("3_0wi6e")
 runes = Array[ExtResource("4_kl547")]([SubResource("Resource_55fe4"), SubResource("Resource_ifpnf"), SubResource("Resource_7g3ig")])
+rune_instance = ExtResource("11_ukoc7")
+spacing = 22
+slots = NodePath("../rune_slots")
 
 [node name="rune_slots" type="Control" parent="moves/Control" unique_id=933939422]
 layout_mode = 1
@@ -124,8 +133,8 @@ offset_bottom = 6.0
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("3_fetnt")
-empty_tex = ExtResource("9_ifpnf")
-pulse_tex = ExtResource("4_kra1k")
+pulse_scene = ExtResource("13_iry3k")
+empty_slot_scene = ExtResource("14_ukoc7")
 spacing = 22
 
 [node name="TextureRect" type="TextureRect" parent="moves/Control/rune_slots" unique_id=97070871]

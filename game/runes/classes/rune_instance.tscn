@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://btq5fdp2sw5jt"]
+
+[ext_resource type="Texture2D" uid="uid://b23pm1053u1c7" path="res://game/runes/textures/jump_rune.png" id="1_i8pve"]
+[ext_resource type="Script" uid="uid://bh117r0er41do" path="res://game/runes/classes/rune_instance.gd" id="2_ei7ju"]
+[ext_resource type="Texture2D" uid="uid://dclxm5ofy3uhj" path="res://game/runes/textures/outline.png" id="2_ysjku"]
+
+[node name="runeinstance" type="Control" unique_id=934855055 node_paths=PackedStringArray("texturerect", "outline")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 20.0
+offset_bottom = 20.0
+pivot_offset = Vector2(10, 10)
+script = ExtResource("2_ei7ju")
+texturerect = NodePath("TextureRect")
+outline = NodePath("outline")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=244334851]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i8pve")
+
+[node name="outline" type="TextureRect" parent="." unique_id=712810059]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ysjku")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

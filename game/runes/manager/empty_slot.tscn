@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dxhn6d6sftxg"]
+
+[ext_resource type="Texture2D" uid="uid://b3cxe1dyt85j6" path="res://game/runes/textures/empty.png" id="1_8c5lm"]
+[ext_resource type="Script" uid="uid://b73lun3xkflvf" path="res://game/runes/manager/empty_slot.gd" id="1_la3y8"]
+
+[node name="empty_slot" type="Control" unique_id=1056618337]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_la3y8")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2134439124]
+texture_filter = 1
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+pivot_offset = Vector2(10, 10)
+texture = ExtResource("1_8c5lm")
