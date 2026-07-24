@@ -7,8 +7,9 @@
 [ext_resource type="Resource" uid="uid://cjpit0lygspfj" path="res://data/world_data/world1/world_data.tres" id="3_55fe4"]
 [ext_resource type="PackedScene" uid="uid://coi5rre8sx8ex" path="res://clock/clock.tscn" id="4_fetnt"]
 [ext_resource type="PackedScene" uid="uid://bsgxuod0d51e1" path="res://world/player/player.tscn" id="5_55fe4"]
+[ext_resource type="Script" uid="uid://e7tyqqnymi5t" path="res://core/fade.gd" id="8_7g3ig"]
 
-[node name="window" type="Control" unique_id=212024242 node_paths=PackedStringArray("world", "editor", "clock")]
+[node name="window" type="Control" unique_id=212024242 node_paths=PackedStringArray("world", "editor", "clock", "fade")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -21,6 +22,7 @@ world_datas = Array[ExtResource("2_0wi6e")]([ExtResource("3_55fe4")])
 world = NodePath("SubViewportContainer/SubViewport/world")
 editor = NodePath("editor")
 clock = NodePath("clock")
+fade = NodePath("fade")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1148028197]
 layout_mode = 1
@@ -44,3 +46,13 @@ player_scene = ExtResource("5_55fe4")
 layout_mode = 1
 
 [node name="clock" parent="." unique_id=1337516601 instance=ExtResource("4_fetnt")]
+
+[node name="fade" type="ColorRect" parent="." unique_id=2067293115]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_7g3ig")

@@ -51,6 +51,7 @@ func load_from_world_data(world_data : WorldData):
 			workspace_rune_instances.append(workspace_rune_instance)
 			workspace.add_child(workspace_rune_instance)
 			continue
+		workspace_rune_instance.count = workspace_length - i
 		workspace_rune_instance.setup_from_structure(null)
 		workspace_rune_instance.index = i
 		workspace_rune_instance.locked = false
@@ -79,11 +80,12 @@ func drop_rune(structure : RuneStructure):
 			for palette_rune_instance in palette_rune_instances:
 				if palette_rune_instance.rune_structure == hovered.rune_structure:
 					palette_rune_instance.rune_count += 1
-		elif hovered.executed:
+		if hovered.executed or hovered.locked:
 			for palette_rune_instance in palette_rune_instances:
 				if palette_rune_instance.rune_structure == structure:
 					palette_rune_instance.rune_count += 1
-		hovered.setup_from_structure(structure)
+		if not (hovered.executed or hovered.locked):
+			hovered.setup_from_structure(structure)
 	else:
 		for palette_rune_instance in palette_rune_instances:
 			if palette_rune_instance.rune_structure == structure:
@@ -114,12 +116,12 @@ func _process(delta: float) -> void:
 					workspace_rune_instance.outline.hide()
 
 func clock():
-	if workspace_rune_instances.size() <= workspace_index:
-		return
+	if workspace_rune_instances.size() <= workspace_index: return
 	workspace_rune_instances[workspace_index].execute(player)
+	workspace_index += 1
 
 func half_clock():
-	workspace_index += 1
+	if workspace_rune_instances.size() <= workspace_index: return
 	for workspace_rune_instance in get_top_workspace_rune_instances():
 		workspace_rune_instance.hovering = false
 		workspace_rune_instance.outline.hide()

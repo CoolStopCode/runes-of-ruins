@@ -29,7 +29,7 @@ scale_curve = SubResource("CurveTexture_40qjc")
 
 [node name="player" type="Node2D" unique_id=1974678029 node_paths=PackedStringArray("sprite", "particles", "glow", "camera")]
 script = ExtResource("1_yynsy")
-sprite = NodePath("CharacterBody2D")
+sprite = NodePath("sprite")
 particles = NodePath("GPUParticles2D")
 glow = NodePath("glow")
 camera = NodePath("Camera2D")
@@ -38,10 +38,10 @@ camera = NodePath("Camera2D")
 position_smoothing_enabled = true
 script = ExtResource("2_et4on")
 
-[node name="CharacterBody2D" type="AnimatedSprite2D" parent="." unique_id=1325220886]
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1325220886]
 texture_filter = 1
 sprite_frames = ExtResource("2_bvkkv")
-animation = &"walk"
+animation = &"smack"
 autoplay = "idle"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1179870083]

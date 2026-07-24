@@ -17,6 +17,7 @@ func load_from_world_data(world_data : WorldData):
 	player.tile_position = world_data.player_start
 	player.tilemap = level.tilemap
 	player.move_time = world_data.clock_interval / 4
+	player.clock_interval = world_data.clock_interval
 	add_child(player)
 
 func clock():

@@ -1,11 +1,13 @@
 class_name WorkspaceRuneInstance
 extends Control
 
+@export var count : int
 @export var index : int
 @export var rune_structure : RuneStructure
 @export var texture : TextureRect
 @export var outline : TextureRect
 @export var effect : TextureRect
+@export var label : Label
 @export var empty_texture : Texture
 @export var particles : GPUParticles2D
 
@@ -14,6 +16,7 @@ var locked : bool
 signal pressed(workspace_rune_instance : WorkspaceRuneInstance)
 
 func setup_from_structure(structure : RuneStructure) -> void:
+	label.text = str(count)
 	if executed: return
 	rune_structure = structure
 	if structure != null:
@@ -63,6 +66,7 @@ func execute(player : Player):
 	#tween3.tween_property(outline, "modulate:a", 0.0, 0.5)
 	
 	outline.hide()
+	label.show()
 	if rune_structure:
 		rune_structure.execute(player)
 		particles.emitting = true
@@ -71,6 +75,7 @@ func execute(player : Player):
 		player.try_fall()
 	
 	texture.modulate.a = 0.5
+	label.modulate.a = 0.5
 	
 	await get_tree().create_timer(particles.lifetime).timeout
 	particles.queue_free()

@@ -18,17 +18,19 @@ func load_from_world_data(world_data: WorldData) -> void:
 	clock_interval = world_data.clock_interval
 	offset = world_data.offset
 
+	audio_player.stream = audio
+
+func start():
 	time = clock_interval - offset
 	half_clock_emitted = false
 	active = true
-
-	audio_player.stream = audio
 	audio_player.play()
 
+func stop():
+	active = false
 
 func _process(delta: float) -> void:
-	if not active:
-		return
+	if not active: return
 
 	time += delta
 
