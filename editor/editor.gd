@@ -47,11 +47,13 @@ func load_from_world_data(world_data : WorldData):
 		if i == workspace_length:
 			workspace_rune_instance.setup_from_structure(die_rune_structure)
 			workspace_rune_instance.index = i
+			workspace_rune_instance.locked = true
 			workspace_rune_instances.append(workspace_rune_instance)
 			workspace.add_child(workspace_rune_instance)
 			continue
 		workspace_rune_instance.setup_from_structure(null)
 		workspace_rune_instance.index = i
+		workspace_rune_instance.locked = false
 		workspace_rune_instance.pressed.connect(pick_up_rune_from_workspace)
 		workspace_rune_instances.append(workspace_rune_instance)
 		workspace.add_child(workspace_rune_instance)
