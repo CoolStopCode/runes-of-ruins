@@ -65,6 +65,7 @@ func _ready() -> void:
 	mouse.rune_dropped.connect(drop_rune)
 
 func pick_up_rune_from_palette(palette_rune_instance : PaletteRuneInstance):
+	if palette_rune_instance.rune_count == 0: return
 	palette_rune_instance.rune_count -= 1
 	mouse.pick_up_rune(palette_rune_instance.rune_structure)
 

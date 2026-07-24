@@ -4,6 +4,7 @@ extends Node2D
 var player : Player
 var level : Level
 @export var player_scene : PackedScene
+@export var sky : TextureRect
 
 const tile_size := Vector2(16, 16)
 func load_from_world_data(world_data : WorldData):
@@ -20,6 +21,9 @@ func load_from_world_data(world_data : WorldData):
 	player.move_time = world_data.clock_interval / 4
 	player.clock_interval = world_data.clock_interval
 	add_child(player)
+	
+	sky.position = player.position + Vector2(128, -100)
 
 func clock():
 	level.clock()
+	sky.position = player.position + Vector2(128, -100)

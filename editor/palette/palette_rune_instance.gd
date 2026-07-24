@@ -15,6 +15,8 @@ signal pressed(palette_rune_instance : PaletteRuneInstance)
 func setup_from_structure(structure : RuneStructure, count : int) -> void:
 	rune_structure = structure
 	rune_count = count
+	if count == -1:
+		label.hide()
 	update_rune_count()
 	texture.texture = structure.texture
 	size = structure.size
@@ -23,17 +25,24 @@ func setup_from_structure(structure : RuneStructure, count : int) -> void:
 var hovering : bool = false
 
 func update_rune_count():
+	if rune_count == 0:
+		texture.self_modulate = Color(0.5, 0.5, 0.5)
+	else:
+		texture.self_modulate = Color(1, 1, 1)
 	label.text = str(rune_count)
 
 func _on_mouse_entered() -> void:
+	if rune_count == 0: return
 	hovering = true
 	outline.show()
 
 func _on_mouse_exited() -> void:
+	if rune_count == 0: return
 	hovering = false
 	outline.hide()
 
 func _on_gui_input(event: InputEvent) -> void:
+	if rune_count == 0: return
 	if event is InputEventMouseButton:
 		if event.pressed:
 			outline.hide()

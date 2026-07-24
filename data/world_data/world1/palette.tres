@@ -11,13 +11,13 @@
 [sub_resource type="Resource" id="Resource_0dirf"]
 script = ExtResource("1_xcc5q")
 rune_structure = ExtResource("2_ln22i")
-count = 5
+count = -1
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
 [sub_resource type="Resource" id="Resource_dol07"]
 script = ExtResource("1_xcc5q")
 rune_structure = ExtResource("3_4tawq")
-count = 10
+count = -1
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
 [sub_resource type="Resource" id="Resource_cvtd2"]
@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://bde2cnlpiw5eo"
 [sub_resource type="Resource" id="Resource_bvkkv"]
 script = ExtResource("1_xcc5q")
 rune_structure = SubResource("Resource_cvtd2")
-count = 100
+count = -1
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
 [resource]

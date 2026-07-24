@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhcv8yuytjru8" path="res://editor/palette/palette_rune_instance.gd" id="1_t75ce"]
 [ext_resource type="Texture2D" uid="uid://b23pm1053u1c7" path="res://data/rune_textures/jump_rune.png" id="2_t75ce"]
-[ext_resource type="Texture2D" uid="uid://dkps0cr75pvxa" path="res://editor/outline.png" id="3_h00ua"]
+[ext_resource type="Texture2D" uid="uid://b6g3v5q062aag" path="res://editor/outline.png" id="3_h00ua"]
 [ext_resource type="LabelSettings" uid="uid://dms8nnyekmhx8" path="res://assets/font/pixuff_outline.tres" id="3_o3pp1"]
 
 [node name="palette_rune_instance" type="Control" unique_id=1175641974 node_paths=PackedStringArray("texture", "outline", "label")]
