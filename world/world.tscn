@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://dmimtcmve3rqk"]
+[gd_scene format=4 uid="uid://dmimtcmve3rqk"]
 
 [ext_resource type="Script" uid="uid://dd2nce14tj4tr" path="res://world/world.gd" id="1_6xmxd"]
+[ext_resource type="Texture2D" uid="uid://bq1slqpc784ax" path="res://world/bg1.png" id="2_tcf2h"]
+[ext_resource type="TileSet" uid="uid://d1yjggpupl7ea" path="res://world/tile_set.tres" id="3_4717r"]
 
 [node name="world" type="Node2D" unique_id=1043737338]
 script = ExtResource("1_6xmxd")
@@ -10,4 +12,29 @@ offset_left = -2469.0
 offset_top = -1666.0
 offset_right = 2242.0
 offset_bottom = 1964.0
-color = Color(0.54928416, 0.5492842, 0.54928416, 1)
+color = Color(0.46610004, 0.6658383, 0.79, 1)
+
+[node name="background" type="Parallax2D" parent="." unique_id=1671895900]
+modulate = Color(0.8, 0.8, 0.8, 0.7921569)
+scroll_scale = Vector2(0.3, 0)
+repeat_size = Vector2(256, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="background" unique_id=610894804]
+texture_filter = 1
+position = Vector2(-20.5, 30)
+texture = ExtResource("2_tcf2h")
+
+[node name="frontground" type="Parallax2D" parent="." unique_id=542567872]
+modulate = Color(0.58, 0.58, 0.58, 1)
+z_index = 1
+scroll_scale = Vector2(1.4, 1.4)
+scroll_offset = Vector2(1, 0)
+repeat_size = Vector2(256, 0)
+repeat_times = 8
+
+[node name="TileMapLayer" type="TileMapLayer" parent="frontground" unique_id=109041594]
+texture_filter = 1
+position = Vector2(0, -28)
+tile_map_data = PackedByteArray("AAAPAAAAAAAMAAYAAAAPAAEAAAAMAAgAAAAPAAIAAAAMAAgAAAAPAAMAAAAHAAcAAAAOAAMAAAAGAAgAAAAOAAIAAAAKAAgAAAAOAAEAAAAGAAcAAAAOAAAAAAAJAAYAAAANAAEAAAAJAAYAAAANAAIAAAAJAAcAAAANAAMAAAAGAAkAAAAOAAQAAAAJAAcAAAAPAAQAAAAKAAgAAAAQAAQAAAAMAAgAAAAQAAMAAAAMAAYAAAAOAAUAAAAJAAcAAAAPAAUAAAAKAAgAAAAQAAUAAAAMAAgAAAAQAAYAAAAMAAgAAAAPAAYAAAAKAAgAAAAOAAYAAAAJAAcAAAATAAMAAAAJAAcAAAATAAIAAAAJAAYAAAATAAQAAAAJAAcAAAAUAAQAAAAMAAgAAAAUAAMAAAAMAAgAAAATAAUAAAAGAAcAAAASAAUAAAAJAAYAAAASAAYAAAAJAAcAAAATAAYAAAAKAAgAAAAUAAYAAAAKAAgAAAAUAAUAAAAHAAcAAAAVAAUAAAAMAAYAAAAVAAYAAAAMAAgAAAAMAAMAAAAHAAYAAAALAAMAAAALAAYAAAAKAAMAAAALAAYAAAAMAAQAAAAMAAkAAAALAAQAAAAKAAkAAAAKAAQAAAAHAAgAAAAJAAQAAAAGAAgAAAAJAAUAAAAJAAcAAAAJAAYAAAAGAAcAAAAKAAUAAAAMAAgAAAAIAAYAAAAJAAYAAAAIAAcAAAAJAAkAAAAJAAcAAAAKAAkAAAAOAAcAAAAJAAkAAAAPAAcAAAAKAAkAAAAQAAcAAAAMAAkAAAAKAAYAAAAMAAgAAAAKAAcAAAAMAAkAAAASAAcAAAAJAAkAAAATAAcAAAAKAAkAAAAUAAcAAAAKAAkAAAAVAAcAAAAMAAkAAAAJAAMAAAAHAAcAAAAJAAIAAAAMAAgAAAAJAAEAAAAMAAYAAAAIAAEAAAAJAAYAAAAIAAIAAAAJAAcAAAAIAAMAAAAJAAcAAAAIAAQAAAAJAAkAAAAUAAIAAAAKAAcAAAAVAAIAAAAMAAkAAAAVAAEAAAAMAAYAAAAUAAEAAAAJAAYAAAA=")
+tile_set = ExtResource("3_4717r")

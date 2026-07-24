@@ -10,6 +10,7 @@ func load_from_world_data(world_data : WorldData):
 	if player: player.queue_free()
 	if level: level.queue_free()
 	level = world_data.level.instantiate()
+	level.clock_interval = world_data.clock_interval
 	add_child(level)
 	
 	player = player_scene.instantiate()
@@ -21,4 +22,4 @@ func load_from_world_data(world_data : WorldData):
 	add_child(player)
 
 func clock():
-	pass
+	level.clock()
