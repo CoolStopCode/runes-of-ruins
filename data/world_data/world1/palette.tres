@@ -1,23 +1,38 @@
 [gd_resource type="Resource" script_class="Palette" format=3 uid="uid://brxiesa0d7kea"]
 
-[ext_resource type="Script" uid="uid://cjb5u2gufrr4o" path="res://editor/palette_part.gd" id="1_56gul"]
-[ext_resource type="Resource" uid="uid://biy1hjhyfllp0" path="res://data/rune_structures/jump_rune_structure.tres" id="2_laky1"]
-[ext_resource type="Resource" uid="uid://cgkj65t5bf2uj" path="res://data/rune_structures/left_rune_structure.tres" id="3_dol07"]
-[ext_resource type="Script" uid="uid://chpqk8jk8aqqh" path="res://editor/palette.gd" id="3_uqguj"]
+[ext_resource type="Script" uid="uid://cjb5u2gufrr4o" path="res://editor/palette_part.gd" id="1_xcc5q"]
+[ext_resource type="Resource" uid="uid://biy1hjhyfllp0" path="res://data/rune_structures/jump_rune_structure.tres" id="2_ln22i"]
+[ext_resource type="Resource" uid="uid://cgkj65t5bf2uj" path="res://data/rune_structures/left_rune_structure.tres" id="3_4tawq"]
+[ext_resource type="Texture2D" uid="uid://ktrpdvi8nxck" path="res://data/rune_textures/right_particle.png" id="4_4tawq"]
+[ext_resource type="Script" uid="uid://bde2cnlpiw5eo" path="res://data/runes/right_rune_structure.gd" id="4_qx70f"]
+[ext_resource type="Script" uid="uid://chpqk8jk8aqqh" path="res://editor/palette.gd" id="5_ap75u"]
+[ext_resource type="Texture2D" uid="uid://cg34gal7fye0" path="res://data/rune_textures/move_right_rune.png" id="6_qx70f"]
 
 [sub_resource type="Resource" id="Resource_0dirf"]
-script = ExtResource("1_56gul")
-rune_structure = ExtResource("2_laky1")
+script = ExtResource("1_xcc5q")
+rune_structure = ExtResource("2_ln22i")
 count = 5
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
 [sub_resource type="Resource" id="Resource_dol07"]
-script = ExtResource("1_56gul")
-rune_structure = ExtResource("3_dol07")
+script = ExtResource("1_xcc5q")
+rune_structure = ExtResource("3_4tawq")
 count = 10
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
+[sub_resource type="Resource" id="Resource_cvtd2"]
+script = ExtResource("4_qx70f")
+texture = ExtResource("6_qx70f")
+particle_texture = ExtResource("4_4tawq")
+metadata/_custom_type_script = "uid://bde2cnlpiw5eo"
+
+[sub_resource type="Resource" id="Resource_bvkkv"]
+script = ExtResource("1_xcc5q")
+rune_structure = SubResource("Resource_cvtd2")
+count = 100
+metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
+
 [resource]
-script = ExtResource("3_uqguj")
-parts = Array[ExtResource("1_56gul")]([SubResource("Resource_0dirf"), SubResource("Resource_dol07")])
+script = ExtResource("5_ap75u")
+parts = Array[ExtResource("1_xcc5q")]([SubResource("Resource_0dirf"), SubResource("Resource_dol07"), SubResource("Resource_bvkkv")])
 metadata/_custom_type_script = "uid://chpqk8jk8aqqh"

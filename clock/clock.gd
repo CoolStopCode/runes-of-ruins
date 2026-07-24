@@ -11,13 +11,14 @@ var half_clock_emitted: bool = false
 @export var clock_interval: float
 @export var audio: AudioStream
 @export var audio_player: AudioStreamPlayer
-
+@export var offset : float
 
 func load_from_world_data(world_data: WorldData) -> void:
 	audio = world_data.audio
 	clock_interval = world_data.clock_interval
+	offset = world_data.offset
 
-	time = 0.0
+	time = clock_interval - offset
 	half_clock_emitted = false
 	active = true
 

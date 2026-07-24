@@ -4,3 +4,10 @@
 
 [node name="world" type="Node2D" unique_id=1043737338]
 script = ExtResource("1_6xmxd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=181704626]
+offset_left = -2469.0
+offset_top = -1666.0
+offset_right = 2242.0
+offset_bottom = 1964.0
+color = Color(0.09986097, 0.09986096, 0.09986096, 1)

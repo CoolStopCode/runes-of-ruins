@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DieRuneStructure" format=3 uid="uid://daw1us8l8qkq8"]
+
+[ext_resource type="Script" uid="uid://b8hw2kg23ebf6" path="res://data/runes/die_rune_structure.gd" id="1_4gcyc"]
+[ext_resource type="Texture2D" uid="uid://hk5xfdtheocr" path="res://data/rune_textures/die_particle.png" id="1_jem5g"]
+[ext_resource type="Texture2D" uid="uid://bwtnjlkjllw5l" path="res://data/rune_textures/die.png" id="2_2qvrb"]
+
+[resource]
+script = ExtResource("1_4gcyc")
+texture = ExtResource("2_2qvrb")
+particle_texture = ExtResource("1_jem5g")
+metadata/_custom_type_script = "uid://b8hw2kg23ebf6"

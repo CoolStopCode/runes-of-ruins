@@ -12,3 +12,4 @@ extends Resource
 @export_category("Clock")
 @export var clock_interval : float
 @export var audio : AudioStream
+@export var offset : float

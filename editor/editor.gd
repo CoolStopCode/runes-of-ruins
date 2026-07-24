@@ -15,7 +15,7 @@ var workspace_rune_instances : Array[WorkspaceRuneInstance]
 var palette_rune_instances : Array[PaletteRuneInstance]
 
 @export var player : Player = Player.new()
-@export var test_palette : Palette
+@export var die_rune_structure : DieRuneStructure
 
 const workspace_spacing : int = 18
 const workspace_start_pos : int = 1
@@ -42,14 +42,23 @@ func load_from_world_data(world_data : WorldData):
 	
 	workspace_rune_instances.clear()
 	workspace.size.y = 100 * workspace_length
-	for i in range(workspace_length):
+	for i in range(workspace_length + 1):
 		var workspace_rune_instance : WorkspaceRuneInstance = workspace_rune_instance_scene.instantiate()
+		if i == workspace_length:
+			workspace_rune_instance.setup_from_structure(die_rune_structure)
+			workspace_rune_instance.index = i
+			workspace_rune_instances.append(workspace_rune_instance)
+			workspace.add_child(workspace_rune_instance)
+			continue
 		workspace_rune_instance.setup_from_structure(null)
 		workspace_rune_instance.index = i
 		workspace_rune_instance.pressed.connect(pick_up_rune_from_workspace)
 		workspace_rune_instances.append(workspace_rune_instance)
 		workspace.add_child(workspace_rune_instance)
 	
+	mouse.hide()
+
+func _ready() -> void:
 	mouse.rune_dropped.connect(drop_rune)
 
 func pick_up_rune_from_palette(palette_rune_instance : PaletteRuneInstance):
@@ -64,9 +73,13 @@ func pick_up_rune_from_workspace(workspace_rune_instance : WorkspaceRuneInstance
 func drop_rune(structure : RuneStructure):
 	var hovered := get_hovered_workspace_rune()
 	if hovered != null:
-		if hovered.rune_structure != null:
+		if hovered.rune_structure != null: # replace
 			for palette_rune_instance in palette_rune_instances:
 				if palette_rune_instance.rune_structure == hovered.rune_structure:
+					palette_rune_instance.rune_count += 1
+		elif hovered.executed:
+			for palette_rune_instance in palette_rune_instances:
+				if palette_rune_instance.rune_structure == structure:
 					palette_rune_instance.rune_count += 1
 		hovered.setup_from_structure(structure)
 	else:
@@ -92,13 +105,15 @@ func _process(delta: float) -> void:
 	if mouse.active:
 		var mouse_position := get_global_mouse_position()
 		for workspace_rune_instance in get_top_workspace_rune_instances():
-			if not workspace_rune_instance.executed:
+			if not (workspace_rune_instance.executed or workspace_rune_instance.locked):
 				if workspace_rune_instance.get_global_rect().has_point(mouse_position):
 					workspace_rune_instance.outline.show()
 				else:
 					workspace_rune_instance.outline.hide()
 
 func clock():
+	if workspace_rune_instances.size() <= workspace_index:
+		return
 	workspace_rune_instances[workspace_index].execute(player)
 
 func half_clock():

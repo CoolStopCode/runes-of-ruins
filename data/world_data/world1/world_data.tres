@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="WorldData" format=3 uid="uid://cjpit0lygspfj"]
 
+[ext_resource type="AudioStream" uid="uid://cia5wc0ewncjd" path="res://data/world_data/world1/lofi.mp3" id="1_0l1oo"]
 [ext_resource type="PackedScene" uid="uid://c8u7uhcepvfut" path="res://data/world_data/world1/level.tscn" id="1_a5rme"]
 [ext_resource type="Script" uid="uid://d2ev3bj2sodq0" path="res://world/world_data.gd" id="1_crtr3"]
 [ext_resource type="Resource" uid="uid://brxiesa0d7kea" path="res://data/world_data/world1/palette.tres" id="2_0l1oo"]
@@ -7,7 +8,10 @@
 [resource]
 script = ExtResource("1_crtr3")
 palette = ExtResource("2_0l1oo")
-workspace_length = 50
+workspace_length = 5
 level = ExtResource("1_a5rme")
-clock_interval = 1.0
+player_start = Vector2(0, -1)
+clock_interval = 1.54
+audio = ExtResource("1_0l1oo")
+offset = 0.76
 metadata/_custom_type_script = "uid://d2ev3bj2sodq0"

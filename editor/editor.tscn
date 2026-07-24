@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://boqbdxlhia1lx" path="res://editor/gui/box_fill.png" id="1_ycap1"]
 [ext_resource type="PackedScene" uid="uid://dtto1rvc80h7c" path="res://editor/palette/palette_rune_instance.tscn" id="2_j82do"]
 [ext_resource type="PackedScene" uid="uid://bfwgwsitsq6fi" path="res://editor/workspace/workspace_rune_instance.tscn" id="3_6j37k"]
-[ext_resource type="Resource" uid="uid://brxiesa0d7kea" path="res://data/world_data/world1/palette.tres" id="4_6hpnh"]
+[ext_resource type="Resource" uid="uid://daw1us8l8qkq8" path="res://data/rune_structures/die_rune_structure.tres" id="4_swf4p"]
 [ext_resource type="Texture2D" uid="uid://dwjg71c8idl4" path="res://editor/gui/box_outline.png" id="6_aws7q"]
 [ext_resource type="PackedScene" uid="uid://djq8pjw586hia" path="res://editor/mouse/mouse_rune_instance.tscn" id="6_swf4p"]
 
@@ -23,7 +23,7 @@ palettespace = NodePath("palettespace")
 mouse = NodePath("mouse_rune_instance")
 palette_rune_instance_scene = ExtResource("2_j82do")
 workspace_rune_instance_scene = ExtResource("3_6j37k")
-test_palette = ExtResource("4_6hpnh")
+die_rune_structure = ExtResource("4_swf4p")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1558344756]
 texture_filter = 1

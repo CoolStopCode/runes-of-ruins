@@ -9,6 +9,8 @@ extends Control
 @export var empty_texture : Texture
 @export var particles : GPUParticles2D
 
+var executed : bool
+var locked : bool
 signal pressed(workspace_rune_instance : WorkspaceRuneInstance)
 
 func setup_from_structure(structure : RuneStructure) -> void:
@@ -24,24 +26,26 @@ var hovering : bool = false
 
 func _on_mouse_entered() -> void:
 	if executed: return
+	if locked: return
 	hovering = true
 	if rune_structure != null:
 		outline.show()
 
 func _on_mouse_exited() -> void:
 	if executed: return
+	if locked: return
 	hovering = false
 	if rune_structure != null:
 		outline.hide()
 
 func _on_gui_input(event: InputEvent) -> void:
 	if executed: return
+	if locked: return
 	if event is InputEventMouseButton:
 		if event.pressed:
 			outline.hide()
 			pressed.emit(self)
  
-var executed : bool
 func execute(player : Player):
 	executed = true
 	
@@ -63,6 +67,8 @@ func execute(player : Player):
 		rune_structure.execute(player)
 		particles.emitting = true
 		texture.texture = empty_texture
+	else:
+		player.try_fall()
 	
 	texture.modulate.a = 0.5
 	

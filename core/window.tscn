@@ -33,7 +33,9 @@ grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1011540640]
+handle_input_locally = false
 size = Vector2i(210, 144)
+render_target_update_mode = 4
 
 [node name="world" parent="SubViewportContainer/SubViewport" unique_id=1043737338 instance=ExtResource("1_lm807")]
 player_scene = ExtResource("5_55fe4")
