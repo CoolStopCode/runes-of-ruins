@@ -1,41 +1,47 @@
-[gd_resource type="Resource" script_class="Palette" format=3 uid="uid://bfig6va38jkk6"]
+[gd_resource type="Resource" script_class="Palette" format=3 uid="uid://075xwjqcn3ma"]
 
 [ext_resource type="Script" uid="uid://cjb5u2gufrr4o" path="res://editor/palette_part.gd" id="1_r7oi1"]
 [ext_resource type="Resource" uid="uid://5pw4a3w4gnq7" path="res://data/rune_structures/right_rune_structure.tres" id="2_81mt1"]
 [ext_resource type="Script" uid="uid://chpqk8jk8aqqh" path="res://editor/palette.gd" id="2_rw8fp"]
+[ext_resource type="Resource" uid="uid://g1tpvlfc0462" path="res://data/rune_structures/stop_rune_structure.tres" id="3_jfxxt"]
 [ext_resource type="Resource" uid="uid://cgkj65t5bf2uj" path="res://data/rune_structures/left_rune_structure.tres" id="3_v7e0s"]
 [ext_resource type="Resource" uid="uid://biy1hjhyfllp0" path="res://data/rune_structures/jump_rune_structure.tres" id="4_jfxxt"]
-[ext_resource type="Resource" uid="uid://bjc305p2m65s3" path="res://data/rune_structures/down_rune_structure.tres" id="5_01g4w"]
+[ext_resource type="Resource" uid="uid://ckaiu1jonxgw5" path="res://data/rune_structures/dash_right_rune_structure.tres" id="6_02cbx"]
 [ext_resource type="Resource" uid="uid://c871anbojua8k" path="res://data/rune_structures/win_rune_structure.tres" id="7_02cbx"]
 
-[sub_resource type="Resource" id="Resource_i17ey"]
+[sub_resource type="Resource" id="Resource_3meo8"]
 script = ExtResource("1_r7oi1")
 rune_structure = ExtResource("4_jfxxt")
-count = -1
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
-[sub_resource type="Resource" id="Resource_kxy6l"]
+[sub_resource type="Resource" id="Resource_eqxmd"]
+script = ExtResource("1_r7oi1")
+rune_structure = ExtResource("3_v7e0s")
+metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
+
+[sub_resource type="Resource" id="Resource_vgsay"]
 script = ExtResource("1_r7oi1")
 rune_structure = ExtResource("2_81mt1")
 count = -1
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
-[sub_resource type="Resource" id="Resource_81mt1"]
+[sub_resource type="Resource" id="Resource_8vwo1"]
 script = ExtResource("1_r7oi1")
-rune_structure = ExtResource("3_v7e0s")
+rune_structure = ExtResource("3_jfxxt")
+count = -1
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
-[sub_resource type="Resource" id="Resource_jfxxt"]
+[sub_resource type="Resource" id="Resource_6c5wh"]
 script = ExtResource("1_r7oi1")
-rune_structure = ExtResource("5_01g4w")
+rune_structure = ExtResource("6_02cbx")
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
-[sub_resource type="Resource" id="Resource_2jb0n"]
+[sub_resource type="Resource" id="Resource_ugn1f"]
 script = ExtResource("1_r7oi1")
 rune_structure = ExtResource("7_02cbx")
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
 [resource]
 script = ExtResource("2_rw8fp")
-parts = Array[ExtResource("1_r7oi1")]([SubResource("Resource_i17ey"), SubResource("Resource_kxy6l"), SubResource("Resource_81mt1"), SubResource("Resource_jfxxt"), SubResource("Resource_2jb0n")])
+parts = Array[ExtResource("1_r7oi1")]([SubResource("Resource_3meo8"), SubResource("Resource_eqxmd"), SubResource("Resource_vgsay"), SubResource("Resource_8vwo1"), SubResource("Resource_6c5wh"), SubResource("Resource_ugn1f")])
 metadata/_custom_type_script = "uid://chpqk8jk8aqqh"

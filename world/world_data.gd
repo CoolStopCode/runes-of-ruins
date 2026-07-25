@@ -14,3 +14,5 @@ extends Resource
 @export var clock_interval : float
 @export var audio : AudioStream
 @export var offset : float
+@export var audio_offset : float
+@export var audio_fade_in : float

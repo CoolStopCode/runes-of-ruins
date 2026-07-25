@@ -24,14 +24,17 @@ var _gravity_pending: bool = false
 var _jumped_this_tick: bool = false
 var _grounded_snapshot: bool = false
 var _grounded_snapshot_valid: bool = false
-
+var _auto_move_pending: bool = false
 
 # --- Called by the level's clock / rune system ---
 # clock() and a tile's rune execute() can both fire on the same frame in
-# either order. Two things depend on knowing where the player stood
-# *before* this tick's actions, not mid-tick:
+# either order. Several things depend on knowing the tick's true starting
+# state, or on resolving only after every same-tick rune has had a say:
 #   - jump() must know if the player was grounded at tick start, even if
 #     a "run" move already carried them off a ledge earlier this tick.
+#   - the auto-move driven by active_going must resolve *after* any rune
+#     on the player's current tile (e.g. a Stop rune) has had a chance to
+#     change active_going first — otherwise stopping lands one tick late.
 #   - gravity must resolve after every synchronous move this tick.
 # _snapshot_grounded_state() is called first thing by every entry point
 # that can move the player, so whichever fires first this tick locks in
@@ -39,10 +42,7 @@ var _grounded_snapshot_valid: bool = false
 
 func clock() -> void:
 	_snapshot_grounded_state()
-	if active_going.x == 1:
-		_try_move(Vector2(1, 0))
-	elif active_going.x == -1:
-		_try_move(Vector2(-1, 0))
+	_request_auto_move_check()
 	_request_gravity_check()
 
 
@@ -59,12 +59,12 @@ func jump() -> void:
 
 func move_left() -> void:
 	_snapshot_grounded_state()
-	_try_move(Vector2(-1, 0))
+	active_going = Vector2(-1, 0)
 
 
 func move_right() -> void:
 	_snapshot_grounded_state()
-	_try_move(Vector2(1, 0))
+	active_going = Vector2(1, 0)
 
 
 func die() -> void:
@@ -88,13 +88,19 @@ func is_player_on_ground() -> bool:
 
 
 func is_touching(offset: Vector2) -> bool:
+	if tilemap.get_cell_atlas_coords(tile_position + offset) == Vector2i(16, 11):
+		return false
+	elif offset != Vector2(0, 1):
+		if tilemap.get_cell_atlas_coords(tile_position + offset) == Vector2i(15, 10) or\
+			tilemap.get_cell_atlas_coords(tile_position + offset) == Vector2i(16, 10):
+				return false
 	return tilemap.get_cell_source_id(tile_position + offset) != -1
 
 
 # --- Internal helpers ---
 
-## Shared implementation for move_left()/move_right()/clock()'s horizontal
-## step: walk if the way is clear, otherwise smack into the wall.
+## Shared implementation for move_left()/move_right()/the auto-move step:
+## walk if the way is clear, otherwise smack into the wall.
 func _try_move(direction: Vector2) -> void:
 	var facing_left := direction.x < 0
 	if is_touching(direction):
@@ -117,6 +123,25 @@ func _snapshot_grounded_state() -> void:
 
 func _clear_grounded_snapshot() -> void:
 	_grounded_snapshot_valid = false
+
+
+## The clock's "keep moving in active_going" step is deferred rather than
+## applied inline, so a same-tick rune (e.g. Stop) gets to update
+## active_going first. Without this, the player would move one extra tile
+## before a Stop rune's effect was observed.
+func _request_auto_move_check() -> void:
+	if _auto_move_pending:
+		return
+	_auto_move_pending = true
+	call_deferred("_resolve_auto_move")
+
+
+func _resolve_auto_move() -> void:
+	_auto_move_pending = false
+	if active_going.x == 1:
+		_try_move(Vector2(1, 0))
+	elif active_going.x == -1:
+		_try_move(Vector2(-1, 0))
 
 
 func _request_gravity_check() -> void:
@@ -148,7 +173,6 @@ func _smack(facing_left: bool) -> void:
 	sprite.flip_h = facing_left
 	sprite.play("smack", 2.0 / move_time)
 	_update_direction_indicator()
-
 
 func _pulse_glow() -> void:
 	glow.show()
@@ -191,3 +215,21 @@ func _input(event: InputEvent) -> void:
 	await get_tree().create_timer(5.0).timeout
 	await _tween_scale(speech, Vector2(0.01, 0.01), 0.5, Tween.EASE_OUT, Tween.TRANS_CUBIC)
 	speech.hide()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("tilemap"):
+		die()
+
+func dash_right():
+	sprite.flip_h = false
+	if is_touching(Vector2(2, 0)):
+		_smack(false)
+		return
+	sprite.play("dash", 2.0 / move_time)
+	_move_to(Vector2(2, 0), move_time)
+
+func down():
+	if tilemap.get_cell_atlas_coords(tile_position + Vector2(0, 1)) == Vector2i(15, 10) or\
+		tilemap.get_cell_atlas_coords(tile_position + Vector2(0, 1)) == Vector2i(16, 10):
+		_move_to(Vector2(0, 1), move_time)

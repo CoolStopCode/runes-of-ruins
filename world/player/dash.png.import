@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dloll8rtnlsxe"
-path="res://.godot/imported/dash_left_rune.png-9ddfaf2bc02de8cf62f320fdda56e2c7.ctex"
+uid="uid://csk1lk7pynfrt"
+path="res://.godot/imported/dash.png-e329525362883a7c787939602ddcc974.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/rune_textures/dash_left_rune.png"
-dest_files=["res://.godot/imported/dash_left_rune.png-9ddfaf2bc02de8cf62f320fdda56e2c7.ctex"]
+source_file="res://world/player/dash.png"
+dest_files=["res://.godot/imported/dash.png-e329525362883a7c787939602ddcc974.ctex"]
 
 [params]
 

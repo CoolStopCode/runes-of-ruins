@@ -1,9 +1,22 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://nha8vawwk6jq"]
 
 [ext_resource type="Texture2D" uid="uid://dj76fbqj4qij" path="res://world/player/idle.png" id="1_7axcn"]
+[ext_resource type="Texture2D" uid="uid://csk1lk7pynfrt" path="res://world/player/dash.png" id="1_r48w6"]
 [ext_resource type="Texture2D" uid="uid://y2urlum22re1" path="res://world/player/jump.png" id="2_wbbd1"]
 [ext_resource type="Texture2D" uid="uid://dwj4nxk424b0o" path="res://world/player/walk.png" id="3_r48w6"]
 [ext_resource type="Texture2D" uid="uid://twnq8411snny" path="res://world/player/smack.png" id="3_wbbd1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj3ql"]
+atlas = ExtResource("1_r48w6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4xky"]
+atlas = ExtResource("1_r48w6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy5gr"]
+atlas = ExtResource("1_r48w6")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0em0p"]
 atlas = ExtResource("1_7axcn")
@@ -47,6 +60,20 @@ region = Rect2(32, 0, 16, 16)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj3ql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4xky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy5gr")
+}],
+"loop": 0,
+"name": &"dash",
+"speed": 1.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0em0p")

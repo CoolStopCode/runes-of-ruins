@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DownRuneStructure" format=3 uid="uid://bjc305p2m65s3"]
+
+[ext_resource type="Texture2D" uid="uid://dlo5yvekf6oeh" path="res://data/rune_textures/down_mini.png" id="1_4uned"]
+[ext_resource type="Script" uid="uid://cgahrj682n2ns" path="res://data/runes/down_rune_structure.gd" id="1_wqcqr"]
+[ext_resource type="Texture2D" uid="uid://b6fmqyrl4717o" path="res://data/rune_textures/down_rune_particle.png" id="2_uroqg"]
+[ext_resource type="Texture2D" uid="uid://deihoe8ye1h25" path="res://data/rune_textures/down_rune.png" id="4_rnmw5"]
+
+[resource]
+script = ExtResource("1_wqcqr")
+texture = ExtResource("4_rnmw5")
+mini_texture = ExtResource("1_4uned")
+particle_texture = ExtResource("2_uroqg")
+metadata/_custom_type_script = "uid://cgahrj682n2ns"

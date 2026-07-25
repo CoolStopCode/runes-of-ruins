@@ -5,6 +5,7 @@ extends Control
 @export var workspace : Container
 @export var palettespace : Container
 @export var mouse : MouseRuneInstance
+@export var reset_button : RuneButton
 
 @export_category("Scenes")
 @export var palette_rune_instance_scene : PackedScene
@@ -63,7 +64,12 @@ func load_from_world_data(world_data : WorldData):
 	mouse.hide()
 
 func _ready() -> void:
+	reset_button.pressed.connect(do_reset)
 	mouse.rune_dropped.connect(drop_rune)
+
+signal reset
+func do_reset() -> void:
+	reset.emit()
 
 func pick_up_rune_from_palette(palette_rune_instance : PaletteRuneInstance):
 	if palette_rune_instance.rune_count == 0: return
@@ -142,7 +148,10 @@ func half_clock():
 	#if Input.is_action_just_pressed("ui_down"):
 		#build(test_palette, 100)
 
-func pickup_mini_rune(rune_structure : RuneStructure):
+func pickup_mini_rune(rune_structure : RuneStructure, count : int):
 	for palette_rune_instance in palette_rune_instances:
 		if palette_rune_instance.rune_structure == rune_structure:
-			palette_rune_instance.rune_count += 1
+			if count == -1:
+				palette_rune_instance.rune_count = -1
+			else:
+				palette_rune_instance.rune_count += count

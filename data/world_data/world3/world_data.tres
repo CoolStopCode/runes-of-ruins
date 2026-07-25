@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="WorldData" format=3 uid="uid://cyqdlv37i2ohr"]
+
+[ext_resource type="AudioStream" uid="uid://b8v644xhy4t1q" path="res://data/world_data/world3/background.mp3" id="1_mcl3s"]
+[ext_resource type="PackedScene" uid="uid://cog23h4hq16ax" path="res://data/world_data/world3/level3.tscn" id="2_d0nl5"]
+[ext_resource type="Resource" uid="uid://075xwjqcn3ma" path="res://data/world_data/world3/palette.tres" id="3_cptlg"]
+[ext_resource type="Script" uid="uid://d2ev3bj2sodq0" path="res://world/world_data.gd" id="4_ni3g1"]
+
+[resource]
+script = ExtResource("4_ni3g1")
+index = 3
+palette = ExtResource("3_cptlg")
+workspace_length = 64
+level = ExtResource("2_d0nl5")
+player_start = Vector2(0, -3)
+clock_interval = 1.43
+audio = ExtResource("1_mcl3s")
+offset = 2.8
+audio_offset = 20.0
+audio_fade_in = 2.0
+metadata/_custom_type_script = "uid://d2ev3bj2sodq0"

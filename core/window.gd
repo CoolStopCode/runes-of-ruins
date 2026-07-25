@@ -18,14 +18,15 @@ func setup(world_data : WorldData):
 	editor.load_from_world_data(world_data)
 	clock.load_from_world_data(world_data)
 	editor.player = world.player
+	editor.reset.connect(func(): reset(world_datas[world_index], 0.5, false))
 	world.player.dead.connect(func(): reset(world_datas[world_index], 2.0, false))
 	world.player.winned.connect(func(): reset(world_datas[world_index + 1], 2.0, true))
 	setup_signal.emit()
 	for mini_rune in world.level.mini_runes:
 		mini_rune.pickup.connect(pickup_mini_rune)
 
-func pickup_mini_rune(rune_structure : RuneStructure):
-	editor.pickup_mini_rune(rune_structure)
+func pickup_mini_rune(rune_structure : RuneStructure, count : int):
+	editor.pickup_mini_rune(rune_structure, count)
 
 func _ready() -> void:
 	clock.clock.connect(world.clock)
@@ -34,6 +35,8 @@ func _ready() -> void:
 	world_index = 1
 	setup(world_datas[world_index])
 	
+	has_started = false
+	title.text = "- Level " + str(world_datas[world_index].index) + " -"
 	editor.position.x = 210 + 46
 	sub_viewport_container.size.x = 210 + 46
 
@@ -59,17 +62,26 @@ func intro_animation():
 
 func reset(world_data : WorldData, duration : float, new : bool):
 	has_started = not new
-	if new:
-		title.text = "- Level " + str(world_data.index) + " -"
-		title.show()
-		space.show()
 	clock.stop()
-	fade.exit(duration / 2)
-	await get_tree().create_timer(duration / 2).timeout
+	fade.exit(duration / 2)  
+	await get_tree().create_timer(duration / 2).timeout  
 	setup(world_data)
-	fade.enter(duration / 2)
-	await get_tree().create_timer(duration / 2).timeout
-	clock.start()
+	if new:
+		has_started = false
+		title.text = "- Level " + str(world_data.index) + " -"
+		title.modulate.a = 1.0
+		title.show()
+		space.modulate.a = 1.0
+		space.show()
+		editor.position.x = 210 + 46
+		sub_viewport_container.size.x = 210 + 46
+		editor.won = false
+		fade.enter(duration / 2)
+		world_index += 1
+	else:
+		fade.enter(duration / 2)
+		await get_tree().create_timer(duration / 2).timeout
+		clock.start()
 
 var has_started : bool
 
@@ -78,3 +90,5 @@ func _input(_event: InputEvent) -> void:
 		if not has_started:
 			has_started = true
 			intro_animation()
+	if Input.is_action_just_pressed("ui_down"):
+		reset(world_datas[world_index + 1], 2.0, true)

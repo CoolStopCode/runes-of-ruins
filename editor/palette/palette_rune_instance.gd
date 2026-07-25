@@ -15,8 +15,6 @@ signal pressed(palette_rune_instance : PaletteRuneInstance)
 func setup_from_structure(structure : RuneStructure, count : int) -> void:
 	rune_structure = structure
 	rune_count = count
-	if count == -1:
-		label.hide()
 	update_rune_count()
 	texture.texture = structure.texture
 	size = structure.size
@@ -27,6 +25,9 @@ var hovering : bool = false
 func update_rune_count():
 	if rune_count == 0:
 		texture.self_modulate = Color(0.5, 0.5, 0.5)
+	elif rune_count == -1:
+		label.hide()
+		texture.self_modulate = Color(1, 1, 1)
 	else:
 		texture.self_modulate = Color(1, 1, 1)
 	label.text = str(rune_count)

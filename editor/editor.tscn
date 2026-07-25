@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://daw1us8l8qkq8" path="res://data/rune_structures/die_rune_structure.tres" id="4_swf4p"]
 [ext_resource type="Texture2D" uid="uid://dwjg71c8idl4" path="res://editor/gui/box_outline.png" id="6_aws7q"]
 [ext_resource type="PackedScene" uid="uid://djq8pjw586hia" path="res://editor/mouse/mouse_rune_instance.tscn" id="6_swf4p"]
+[ext_resource type="PackedScene" uid="uid://ldu2v7a4f75r" path="res://editor/button/button.tscn" id="8_aws7q"]
+[ext_resource type="Texture2D" uid="uid://bd6y5wlq0g77x" path="res://editor/button/reset.png" id="9_3meo8"]
 
 [sub_resource type="Gradient" id="Gradient_swf4p"]
 offsets = PackedFloat32Array(0, 0.5797059, 0.99735296)
@@ -16,7 +18,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.16862746, 0, 0, 0, 0.4745098)
 gradient = SubResource("Gradient_swf4p")
 width = 30
 
-[node name="editor" type="Control" unique_id=2121415953 node_paths=PackedStringArray("workspace", "palettespace", "mouse")]
+[node name="editor" type="Control" unique_id=2121415953 node_paths=PackedStringArray("workspace", "palettespace", "mouse", "reset_button")]
 layout_mode = 3
 anchors_preset = 11
 anchor_left = 1.0
@@ -29,6 +31,7 @@ script = ExtResource("1_er7c6")
 workspace = NodePath("Control/workspace")
 palettespace = NodePath("palettespace")
 mouse = NodePath("mouse_rune_instance")
+reset_button = NodePath("reset")
 palette_rune_instance_scene = ExtResource("2_j82do")
 workspace_rune_instance_scene = ExtResource("3_6j37k")
 die_rune_structure = ExtResource("4_swf4p")
@@ -118,3 +121,16 @@ visible = false
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
+
+[node name="reset" parent="." unique_id=187289141 instance=ExtResource("8_aws7q")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_left = 14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = -14.0
+grow_horizontal = 1
+grow_vertical = 0
+texture = ExtResource("9_3meo8")

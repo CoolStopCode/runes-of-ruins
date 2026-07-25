@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://40e5p2hkyrje"]
 
 [ext_resource type="Script" uid="uid://b1w5lxflcsk6l" path="res://world/mini_rune/mini_rune.gd" id="1_q8xxl"]
+[ext_resource type="Texture2D" uid="uid://hq6jg62fjsh0" path="res://data/rune_textures/jump_mini.png" id="2_8lteu"]
+[ext_resource type="LabelSettings" uid="uid://dms8nnyekmhx8" path="res://assets/font/pixuff_outline.tres" id="3_wvq2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3rnk"]
 size = Vector2(8, 8)
@@ -28,15 +30,18 @@ scale_curve = SubResource("CurveTexture_8lteu")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = -2.2351742e-08
 
-[node name="mini_rune" type="Area2D" unique_id=288184284 node_paths=PackedStringArray("sprite", "particles")]
+[node name="mini_rune" type="Area2D" unique_id=288184284 node_paths=PackedStringArray("sprite", "particles", "label")]
 script = ExtResource("1_q8xxl")
 sprite = NodePath("Sprite2D")
 particles = NodePath("particles")
+label = NodePath("Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1135236671]
 shape = SubResource("RectangleShape2D_m3rnk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=743713287]
+texture_filter = 1
+texture = ExtResource("2_8lteu")
 
 [node name="particles" type="GPUParticles2D" parent="." unique_id=823034386]
 emitting = false
@@ -44,5 +49,21 @@ lifetime = 1.48
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_wvq2n")
+
+[node name="Label" type="Label" parent="." unique_id=1803965449]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -10.0
+offset_right = -1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "22"
+label_settings = ExtResource("3_wvq2n")
+horizontal_alignment = 1
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
