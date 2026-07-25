@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ru63u351uw4u"
-path="res://.godot/imported/right_mini.png-7d977c1429415899e69226a296b4eca7.ctex"
+uid="uid://3okbtlqvnyab"
+path="res://.godot/imported/direction.png-43ed41d26db665a7f76178261850b54f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/world_data/world1/right_mini.png"
-dest_files=["res://.godot/imported/right_mini.png-7d977c1429415899e69226a296b4eca7.ctex"]
+source_file="res://world/player/direction.png"
+dest_files=["res://.godot/imported/direction.png-43ed41d26db665a7f76178261850b54f.ctex"]
 
 [params]
 

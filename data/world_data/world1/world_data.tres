@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("1_crtr3")
+index = 1
 palette = ExtResource("2_0l1oo")
 workspace_length = 37
 level = ExtResource("1_a5rme")

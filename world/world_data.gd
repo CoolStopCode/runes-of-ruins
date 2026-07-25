@@ -1,6 +1,7 @@
 class_name WorldData
 extends Resource
 
+@export var index : int
 @export_category("Editor")
 @export var palette : Palette
 @export var workspace_length : int

@@ -1,8 +1,11 @@
 [gd_scene format=4 uid="uid://dmimtcmve3rqk"]
 
 [ext_resource type="Script" uid="uid://dd2nce14tj4tr" path="res://world/world.gd" id="1_6xmxd"]
-[ext_resource type="Texture2D" uid="uid://bq1slqpc784ax" path="res://world/bg1.png" id="2_tcf2h"]
+[ext_resource type="Texture2D" uid="uid://bcbmedv5t2qi8" path="res://world/art/cloud1.png" id="2_h5o24"]
 [ext_resource type="TileSet" uid="uid://d1yjggpupl7ea" path="res://world/tile_set.tres" id="3_4717r"]
+[ext_resource type="Texture2D" uid="uid://bpchipvnbvdei" path="res://world/art/cloud2.png" id="3_mmdvd"]
+[ext_resource type="Texture2D" uid="uid://vy3e4kbl7dgh" path="res://world/art/bg2.png" id="4_fn3g3"]
+[ext_resource type="Texture2D" uid="uid://buhqnd4nxlakw" path="res://world/art/bg1_fog.png" id="4_mmdvd"]
 
 [sub_resource type="Gradient" id="Gradient_4717r"]
 colors = PackedColorArray(0.31850004, 0.7226917, 0.91, 1, 0.75, 0.92083335, 1, 1)
@@ -10,9 +13,19 @@ colors = PackedColorArray(0.31850004, 0.7226917, 0.91, 1, 0.75, 0.92083335, 1, 1
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_m3rnk"]
 gradient = SubResource("Gradient_4717r")
 
-[node name="world" type="Node2D" unique_id=1043737338 node_paths=PackedStringArray("sky")]
+[sub_resource type="Gradient" id="Gradient_fn3g3"]
+offsets = PackedFloat32Array(0, 0.8738235)
+colors = PackedColorArray(0.50960004, 0.7832067, 0.91, 0, 0.48910004, 0.612715, 0.67, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sc4t8"]
+gradient = SubResource("Gradient_fn3g3")
+width = 128
+
+[node name="world" type="Node2D" unique_id=1043737338 node_paths=PackedStringArray("sky", "clouds", "fog")]
 script = ExtResource("1_6xmxd")
 sky = NodePath("sky")
+clouds = NodePath("clouds")
+fog = NodePath("fog")
 
 [node name="sky" type="TextureRect" parent="." unique_id=384914015]
 offset_left = 140.0
@@ -22,16 +35,48 @@ offset_bottom = 179.0
 rotation = 1.5707964
 texture = SubResource("GradientTexture1D_m3rnk")
 
+[node name="clouds" type="Parallax2D" parent="." unique_id=1207262307]
+scroll_scale = Vector2(0.01, 0)
+repeat_size = Vector2(256, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="clouds" unique_id=285591661]
+texture_filter = 1
+position = Vector2(107.5, 18)
+texture = ExtResource("2_h5o24")
+
+[node name="Sprite2D2" type="Sprite2D" parent="clouds" unique_id=1523467974]
+texture_filter = 1
+position = Vector2(16.5, 19)
+texture = ExtResource("3_mmdvd")
+
+[node name="background2" type="Parallax2D" parent="." unique_id=1000394923]
+scroll_scale = Vector2(0.05, 0)
+repeat_size = Vector2(256, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="background2" unique_id=50194954]
+texture_filter = 1
+position = Vector2(-20.5, 6)
+texture = ExtResource("4_fn3g3")
+
 [node name="background" type="Parallax2D" parent="." unique_id=1671895900]
-modulate = Color(0.8, 0.8, 0.8, 0.7921569)
-scroll_scale = Vector2(0.3, 0)
+scroll_scale = Vector2(0.2, 0)
 repeat_size = Vector2(256, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="background" unique_id=610894804]
 texture_filter = 1
 position = Vector2(-20.5, 30)
-texture = ExtResource("2_tcf2h")
+texture = ExtResource("4_mmdvd")
+
+[node name="fog" type="TextureRect" parent="." unique_id=1640922348]
+offset_left = 140.0
+offset_top = 19.0
+offset_right = 268.0
+offset_bottom = 275.0
+rotation = 1.5707964
+texture = SubResource("GradientTexture1D_sc4t8")
 
 [node name="frontground" type="Parallax2D" parent="." unique_id=542567872]
 modulate = Color(0.58, 0.58, 0.58, 1)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WinRuneStructure" format=3 uid="uid://c871anbojua8k"]
+
+[ext_resource type="Texture2D" uid="uid://bcld4cqlsi4oj" path="res://data/rune_textures/win_mini.png" id="1_ci3hi"]
+[ext_resource type="Script" uid="uid://dfbbn07gt5yf" path="res://data/runes/win_rune_structure.gd" id="1_kfnkx"]
+[ext_resource type="Texture2D" uid="uid://cvrf1gqf2j33p" path="res://data/rune_textures/win_particle.png" id="2_nn2j2"]
+[ext_resource type="Texture2D" uid="uid://b5hubgrkobw74" path="res://data/rune_textures/win_rune.png" id="4_h3d5j"]
+
+[resource]
+script = ExtResource("1_kfnkx")
+texture = ExtResource("4_h3d5j")
+mini_texture = ExtResource("1_ci3hi")
+particle_texture = ExtResource("2_nn2j2")
+metadata/_custom_type_script = "uid://dfbbn07gt5yf"

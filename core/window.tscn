@@ -6,10 +6,19 @@
 [ext_resource type="Script" uid="uid://d2ev3bj2sodq0" path="res://world/world_data.gd" id="2_0wi6e"]
 [ext_resource type="Resource" uid="uid://cjpit0lygspfj" path="res://data/world_data/world1/world_data.tres" id="3_55fe4"]
 [ext_resource type="PackedScene" uid="uid://coi5rre8sx8ex" path="res://clock/clock.tscn" id="4_fetnt"]
+[ext_resource type="Resource" uid="uid://cyqdlv37i2ohr" path="res://data/world_data/world2/world_data.tres" id="4_ifpnf"]
 [ext_resource type="PackedScene" uid="uid://bsgxuod0d51e1" path="res://world/player/player.tscn" id="5_55fe4"]
 [ext_resource type="Script" uid="uid://e7tyqqnymi5t" path="res://core/fade.gd" id="8_7g3ig"]
+[ext_resource type="FontFile" uid="uid://4wa71tl7srfw" path="res://assets/font/GravityBold8.ttf" id="9_kl547"]
+[ext_resource type="LabelSettings" uid="uid://dms8nnyekmhx8" path="res://assets/font/pixuff_outline.tres" id="10_5hih0"]
 
-[node name="window" type="Control" unique_id=212024242 node_paths=PackedStringArray("world", "editor", "clock", "fade")]
+[sub_resource type="LabelSettings" id="LabelSettings_ax0we"]
+font = ExtResource("9_kl547")
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.7529412)
+shadow_offset = Vector2(0, 0)
+
+[node name="window" type="Control" unique_id=212024242 node_paths=PackedStringArray("sub_viewport_container", "world", "editor", "clock", "fade", "title", "space")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -18,11 +27,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_65v70")
-world_datas = Array[ExtResource("2_0wi6e")]([ExtResource("3_55fe4")])
+world_datas = Array[ExtResource("2_0wi6e")]([ExtResource("3_55fe4"), ExtResource("4_ifpnf")])
+sub_viewport_container = NodePath("SubViewportContainer")
 world = NodePath("SubViewportContainer/SubViewport/world")
 editor = NodePath("editor")
 clock = NodePath("clock")
 fade = NodePath("fade")
+title = NodePath("title")
+space = NodePath("space")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1148028197]
 layout_mode = 1
@@ -48,6 +60,7 @@ layout_mode = 1
 [node name="clock" parent="." unique_id=1337516601 instance=ExtResource("4_fetnt")]
 
 [node name="fade" type="ColorRect" parent="." unique_id=2067293115]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,3 +69,35 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_7g3ig")
+
+[node name="title" type="Label" parent="." unique_id=543636734]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -35.5
+offset_right = 65.0
+offset_bottom = -12.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "- Level 1 -"
+label_settings = SubResource("LabelSettings_ax0we")
+
+[node name="space" type="Label" parent="." unique_id=432178868]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = 52.0
+offset_right = 14.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[ Space ]"
+label_settings = ExtResource("10_5hih0")

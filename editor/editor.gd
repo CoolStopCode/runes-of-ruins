@@ -21,6 +21,7 @@ const workspace_spacing : int = 18
 const workspace_start_pos : int = 1
 
 var slide_tween : Tween
+var won : bool
 
 func load_from_world_data(world_data : WorldData):
 	var palette : Palette = world_data.palette
@@ -106,7 +107,7 @@ func get_top_workspace_rune_instances() -> Array[WorkspaceRuneInstance]:
 		array.append(workspace_rune_instance)
 	return array
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if mouse.active:
 		var mouse_position := get_global_mouse_position()
 		for workspace_rune_instance in get_top_workspace_rune_instances():
@@ -117,11 +118,15 @@ func _process(delta: float) -> void:
 					workspace_rune_instance.outline.hide()
 
 func clock():
+	if won: return
 	if workspace_rune_instances.size() <= workspace_index: return
 	workspace_rune_instances[workspace_index].execute(player)
+	if workspace_rune_instances[workspace_index].rune_structure is WinRuneStructure:
+		won = true
 	workspace_index += 1
 
 func half_clock():
+	if won: return
 	if workspace_rune_instances.size() <= workspace_index: return
 	for workspace_rune_instance in get_top_workspace_rune_instances():
 		workspace_rune_instance.hovering = false
@@ -136,3 +141,8 @@ func half_clock():
 		#pulse()
 	#if Input.is_action_just_pressed("ui_down"):
 		#build(test_palette, 100)
+
+func pickup_mini_rune(rune_structure : RuneStructure):
+	for palette_rune_instance in palette_rune_instances:
+		if palette_rune_instance.rune_structure == rune_structure:
+			palette_rune_instance.rune_count += 1

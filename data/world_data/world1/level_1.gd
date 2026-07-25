@@ -9,6 +9,7 @@ extends Level
 var frame : int = 1
 
 func clock():
+	super.clock()
 	if frame == 0:
 		sprite1.position += Vector2(-16, 16)
 		fade_sprite1(0.4, 0.4)

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bde2cnlpiw5eo" path="res://data/runes/right_rune_structure.gd" id="4_qx70f"]
 [ext_resource type="Script" uid="uid://chpqk8jk8aqqh" path="res://editor/palette.gd" id="5_ap75u"]
 [ext_resource type="Texture2D" uid="uid://cg34gal7fye0" path="res://data/rune_textures/move_right_rune.png" id="6_qx70f"]
+[ext_resource type="Resource" uid="uid://c871anbojua8k" path="res://data/rune_structures/win_rune_structure.tres" id="7_qx70f"]
 
 [sub_resource type="Resource" id="Resource_0dirf"]
 script = ExtResource("1_xcc5q")
@@ -32,7 +33,12 @@ rune_structure = SubResource("Resource_cvtd2")
 count = -1
 metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
 
+[sub_resource type="Resource" id="Resource_7g3ig"]
+script = ExtResource("1_xcc5q")
+rune_structure = ExtResource("7_qx70f")
+metadata/_custom_type_script = "uid://cjb5u2gufrr4o"
+
 [resource]
 script = ExtResource("5_ap75u")
-parts = Array[ExtResource("1_xcc5q")]([SubResource("Resource_0dirf"), SubResource("Resource_dol07"), SubResource("Resource_bvkkv")])
+parts = Array[ExtResource("1_xcc5q")]([SubResource("Resource_0dirf"), SubResource("Resource_dol07"), SubResource("Resource_bvkkv"), SubResource("Resource_7g3ig")])
 metadata/_custom_type_script = "uid://chpqk8jk8aqqh"

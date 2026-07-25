@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://d1yjggpupl7ea"]
 
-[ext_resource type="Texture2D" uid="uid://c7fdtj4rrh3u8" path="res://world/tileset_new.png" id="1_mc6nt"]
+[ext_resource type="Texture2D" uid="uid://crumjty0c4hba" path="res://world/tileset_new.png" id="1_mc6nt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rlnv"]
 texture = ExtResource("1_mc6nt")
@@ -1151,14 +1151,6 @@ texture = ExtResource("1_mc6nt")
 12:13/0/terrains_peering_bit/left_side = 2
 12:13/0/terrains_peering_bit/top_left_corner = 2
 12:13/0/terrains_peering_bit/top_side = 2
-13:6/0 = 0
-13:6/0/terrain_set = 0
-13:6/0/terrain = 1
-13:6/0/terrains_peering_bit/right_side = 1
-13:6/0/terrains_peering_bit/left_side = 1
-13:6/0/terrains_peering_bit/top_left_corner = 1
-13:6/0/terrains_peering_bit/top_side = 1
-13:6/0/terrains_peering_bit/top_right_corner = 1
 13:7/0 = 0
 13:7/0/terrain_set = 0
 13:7/0/terrain = 1
@@ -1186,6 +1178,7 @@ texture = ExtResource("1_mc6nt")
 13:10/0 = 0
 13:10/0/terrain_set = 0
 13:10/0/terrain = 2
+13:10/0/probability = 0.29
 13:10/0/terrains_peering_bit/right_side = 2
 13:10/0/terrains_peering_bit/left_side = 2
 13:10/0/terrains_peering_bit/top_left_corner = 2
@@ -1194,6 +1187,7 @@ texture = ExtResource("1_mc6nt")
 13:11/0 = 0
 13:11/0/terrain_set = 0
 13:11/0/terrain = 2
+13:11/0/probability = 0.29
 13:11/0/terrains_peering_bit/right_side = 2
 13:11/0/terrains_peering_bit/bottom_right_corner = 2
 13:11/0/terrains_peering_bit/bottom_side = 2
@@ -1202,6 +1196,7 @@ texture = ExtResource("1_mc6nt")
 13:12/0 = 0
 13:12/0/terrain_set = 0
 13:12/0/terrain = 2
+13:12/0/probability = 0.29
 13:12/0/terrains_peering_bit/right_side = 2
 13:12/0/terrains_peering_bit/bottom_right_corner = 2
 13:12/0/terrains_peering_bit/bottom_side = 2
@@ -1210,6 +1205,7 @@ texture = ExtResource("1_mc6nt")
 13:13/0 = 0
 13:13/0/terrain_set = 0
 13:13/0/terrain = 2
+13:13/0/probability = 0.29
 13:13/0/terrains_peering_bit/bottom_side = 2
 13:13/0/terrains_peering_bit/bottom_left_corner = 2
 13:13/0/terrains_peering_bit/left_side = 2
@@ -1218,6 +1214,7 @@ texture = ExtResource("1_mc6nt")
 14:12/0 = 0
 14:12/0/terrain_set = 0
 14:12/0/terrain = 2
+14:12/0/probability = 0.64
 14:12/0/terrains_peering_bit/right_side = 2
 14:12/0/terrains_peering_bit/bottom_right_corner = 2
 14:12/0/terrains_peering_bit/bottom_side = 2
@@ -1241,6 +1238,7 @@ texture = ExtResource("1_mc6nt")
 14:13/0 = 0
 14:13/0/terrain_set = 0
 14:13/0/terrain = 2
+14:13/0/probability = 0.26
 14:13/0/terrains_peering_bit/right_side = 2
 14:13/0/terrains_peering_bit/bottom_right_corner = 2
 14:13/0/terrains_peering_bit/bottom_side = 2
@@ -1312,6 +1310,8 @@ texture = ExtResource("1_mc6nt")
 20:6/0/terrains_peering_bit/top_left_corner = 1
 20:6/0/terrains_peering_bit/top_side = 1
 20:6/0/terrains_peering_bit/top_right_corner = 2
+16:10/0 = 0
+15:10/0 = 0
 
 [resource]
 terrain_set_0/mode = 0

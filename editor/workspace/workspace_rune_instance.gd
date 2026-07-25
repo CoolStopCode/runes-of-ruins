@@ -71,8 +71,6 @@ func execute(player : Player):
 		rune_structure.execute(player)
 		particles.emitting = true
 		texture.texture = empty_texture
-	else:
-		player.try_fall()
 	
 	texture.modulate.a = 0.5
 	label.modulate.a = 0.5

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq1slqpc784ax"
-path="res://.godot/imported/bg1.png-f83c576995ef5b2d5d51a6b029e1cbff.ctex"
+uid="uid://cvrf1gqf2j33p"
+path="res://.godot/imported/win_particle.png-eec48c6c7077e5b01cd52e49f3162fcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/bg1.png"
-dest_files=["res://.godot/imported/bg1.png-f83c576995ef5b2d5d51a6b029e1cbff.ctex"]
+source_file="res://data/rune_textures/win_particle.png"
+dest_files=["res://.godot/imported/win_particle.png-eec48c6c7077e5b01cd52e49f3162fcb.ctex"]
 
 [params]
 

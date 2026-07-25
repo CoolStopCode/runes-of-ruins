@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StopRuneStructure" format=3 uid="uid://g1tpvlfc0462"]
+
+[ext_resource type="Script" uid="uid://bq6yhbk3o76nm" path="res://data/runes/stop_rune_structure.gd" id="1_ehii4"]
+[ext_resource type="Texture2D" uid="uid://cah1moi15pprv" path="res://data/rune_textures/stop_particle.png" id="1_k4fri"]
+[ext_resource type="Texture2D" uid="uid://cjcbbhwaq4bjx" path="res://data/rune_textures/stop_rune.png" id="3_vh3ki"]
+
+[resource]
+script = ExtResource("1_ehii4")
+texture = ExtResource("3_vh3ki")
+particle_texture = ExtResource("1_k4fri")
+metadata/_custom_type_script = "uid://bq6yhbk3o76nm"
