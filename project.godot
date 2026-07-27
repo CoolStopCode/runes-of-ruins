@@ -13,7 +13,7 @@ config_version=5
 config/name="Chaperone_2026"
 run/main_scene="uid://cpdu5j04iu3m1"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://c0aieje6edw2y"
 
 [display]
 

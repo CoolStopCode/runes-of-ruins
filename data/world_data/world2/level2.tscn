@@ -5,7 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://40e5p2hkyrje" path="res://world/mini_rune/mini_rune.tscn" id="3_60srr"]
 [ext_resource type="Resource" uid="uid://bjc305p2m65s3" path="res://data/rune_structures/down_rune_structure.tres" id="5_2jb0n"]
 [ext_resource type="Resource" uid="uid://cgkj65t5bf2uj" path="res://data/rune_structures/left_rune_structure.tres" id="6_qd8gw"]
+[ext_resource type="Texture2D" uid="uid://cnyddfl4b0x1o" path="res://world/art/detail1.png" id="7_6c5wh"]
 [ext_resource type="Resource" uid="uid://c871anbojua8k" path="res://data/rune_structures/win_rune_structure.tres" id="7_eqxmd"]
+[ext_resource type="Texture2D" uid="uid://dtxc6uuww4nak" path="res://world/art/detail2.png" id="8_vl14p"]
+[ext_resource type="Texture2D" uid="uid://ilxdw4112ndv" path="res://world/art/detail4.png" id="9_k4fwr"]
+[ext_resource type="Texture2D" uid="uid://wclwr35s3oyi" path="res://world/art/detail3.png" id="10_b6xyf"]
 
 [node name="level2" type="Node2D" unique_id=578630037 node_paths=PackedStringArray("tilemap", "mini_runes")]
 script = ExtResource("1_u5bel")
@@ -38,3 +42,81 @@ count = 5
 position = Vector2(231, 0)
 rune_structure = ExtResource("7_eqxmd")
 count = 1
+
+[node name="detail" type="Node2D" parent="." unique_id=1208005122]
+
+[node name="Detail1" type="Sprite2D" parent="detail" unique_id=1321534497]
+texture_filter = 1
+position = Vector2(67, -28)
+texture = ExtResource("7_6c5wh")
+
+[node name="Detail2" type="Sprite2D" parent="detail" unique_id=371100412]
+texture_filter = 1
+position = Vector2(62, -19)
+texture = ExtResource("8_vl14p")
+flip_v = true
+
+[node name="Detail4" type="Sprite2D" parent="detail" unique_id=1057430429]
+texture_filter = 1
+position = Vector2(191, -28)
+texture = ExtResource("9_k4fwr")
+
+[node name="Detail3" type="Sprite2D" parent="detail" unique_id=147406241]
+texture_filter = 1
+position = Vector2(206, -28)
+texture = ExtResource("8_vl14p")
+
+[node name="Detail5" type="Sprite2D" parent="detail" unique_id=802924189]
+texture_filter = 1
+position = Vector2(211, -28)
+texture = ExtResource("10_b6xyf")
+
+[node name="Detail6" type="Sprite2D" parent="detail" unique_id=975337382]
+texture_filter = 1
+position = Vector2(254, -28)
+texture = ExtResource("10_b6xyf")
+
+[node name="Detail7" type="Sprite2D" parent="detail" unique_id=1727695764]
+texture_filter = 1
+position = Vector2(244, 5)
+texture = ExtResource("7_6c5wh")
+
+[node name="Detail8" type="Sprite2D" parent="detail" unique_id=961666763]
+texture_filter = 1
+position = Vector2(278, -28)
+texture = ExtResource("8_vl14p")
+
+[node name="Detail9" type="Sprite2D" parent="detail" unique_id=103412223]
+texture_filter = 1
+position = Vector2(357, -76)
+texture = ExtResource("8_vl14p")
+
+[node name="Detail10" type="Sprite2D" parent="detail" unique_id=139714486]
+texture_filter = 1
+position = Vector2(418, -92)
+texture = ExtResource("9_k4fwr")
+
+[node name="Detail11" type="Sprite2D" parent="detail" unique_id=860765520]
+texture_filter = 1
+position = Vector2(421, -92)
+texture = ExtResource("10_b6xyf")
+
+[node name="Detail12" type="Sprite2D" parent="detail" unique_id=2133467079]
+texture_filter = 1
+position = Vector2(474, -92)
+texture = ExtResource("10_b6xyf")
+
+[node name="Detail13" type="Sprite2D" parent="detail" unique_id=43688899]
+texture_filter = 1
+position = Vector2(461, -92)
+texture = ExtResource("7_6c5wh")
+
+[node name="Detail14" type="Sprite2D" parent="detail" unique_id=463420053]
+texture_filter = 1
+position = Vector2(-85, -76)
+texture = ExtResource("8_vl14p")
+
+[node name="Detail15" type="Sprite2D" parent="detail" unique_id=970995520]
+texture_filter = 1
+position = Vector2(-60, -76)
+texture = ExtResource("10_b6xyf")

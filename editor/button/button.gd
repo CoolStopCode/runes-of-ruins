@@ -6,6 +6,7 @@ signal pressed
 @export var texture : Texture
 @export var texture_rect : TextureRect
 @export var outline : TextureRect
+@export var click_sfx : AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,3 +23,4 @@ func _on_mouse_exited() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		pressed.emit()
+		click_sfx.play()

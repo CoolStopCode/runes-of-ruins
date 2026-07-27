@@ -34,4 +34,4 @@ func clock():
 	sky.position = player.position + Vector2(128, -100)
 	fog.position = player.position + Vector2(128, -30)
 	var tween := get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(sky, "modulate", Color(1, 1, 1), 0.8).from(Color(1.1, 1.1, 1.1))
+	tween.tween_property(sky, "modulate", Color(1, 1, 1), 1.8).from(Color(1.1, 1.1, 1.1))

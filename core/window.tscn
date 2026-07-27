@@ -9,9 +9,11 @@
 [ext_resource type="Resource" uid="uid://k03ntx88gr53" path="res://data/world_data/world2/world_data.tres" id="4_ifpnf"]
 [ext_resource type="PackedScene" uid="uid://bsgxuod0d51e1" path="res://world/player/player.tscn" id="5_55fe4"]
 [ext_resource type="Resource" uid="uid://cyqdlv37i2ohr" path="res://data/world_data/world3/world_data.tres" id="5_r1yit"]
+[ext_resource type="Resource" uid="uid://dkqtyn3fncqiw" path="res://data/world_data/world4/world_data.tres" id="6_1ol8j"]
 [ext_resource type="Script" uid="uid://e7tyqqnymi5t" path="res://core/fade.gd" id="8_7g3ig"]
 [ext_resource type="FontFile" uid="uid://4wa71tl7srfw" path="res://assets/font/GravityBold8.ttf" id="9_kl547"]
 [ext_resource type="LabelSettings" uid="uid://dms8nnyekmhx8" path="res://assets/font/pixuff_outline.tres" id="10_5hih0"]
+[ext_resource type="AudioStream" uid="uid://7iy75bldl33x" path="res://core/bird.mp3" id="14_pco88"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ax0we"]
 font = ExtResource("9_kl547")
@@ -19,7 +21,7 @@ shadow_size = 8
 shadow_color = Color(0, 0, 0, 0.7529412)
 shadow_offset = Vector2(0, 0)
 
-[node name="window" type="Control" unique_id=212024242 node_paths=PackedStringArray("sub_viewport_container", "world", "editor", "clock", "fade", "title", "space")]
+[node name="window" type="Control" unique_id=212024242 node_paths=PackedStringArray("sub_viewport_container", "world", "editor", "clock", "fade", "title", "space", "bird")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -28,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_65v70")
-world_datas = Array[ExtResource("2_0wi6e")]([ExtResource("3_55fe4"), ExtResource("4_ifpnf"), ExtResource("5_r1yit"), null])
+world_datas = Array[ExtResource("2_0wi6e")]([ExtResource("3_55fe4"), ExtResource("4_ifpnf"), ExtResource("5_r1yit"), ExtResource("6_1ol8j")])
 sub_viewport_container = NodePath("SubViewportContainer")
 world = NodePath("SubViewportContainer/SubViewport/world")
 editor = NodePath("editor")
@@ -36,6 +38,7 @@ clock = NodePath("clock")
 fade = NodePath("fade")
 title = NodePath("title")
 space = NodePath("space")
+bird = NodePath("bird")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1148028197]
 layout_mode = 1
@@ -102,3 +105,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "[ Space ]"
 label_settings = ExtResource("10_5hih0")
+
+[node name="bird" type="AudioStreamPlayer" parent="." unique_id=647335753]
+stream = ExtResource("14_pco88")

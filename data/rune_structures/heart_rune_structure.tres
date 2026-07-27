@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HeartRuneStructure" format=3 uid="uid://usjefbih1r7b"]
+
+[ext_resource type="Script" uid="uid://dtrnflxsh30le" path="res://data/runes/heart_rune_structure.gd" id="1_dqwi7"]
+[ext_resource type="Texture2D" uid="uid://cs1m18rh7dslr" path="res://data/rune_textures/heart_particle.png" id="1_llxet"]
+[ext_resource type="Texture2D" uid="uid://ds1iabdxwuvi3" path="res://data/rune_textures/heart.png" id="3_nqk50"]
+
+[resource]
+script = ExtResource("1_dqwi7")
+texture = ExtResource("3_nqk50")
+particle_texture = ExtResource("1_llxet")
+metadata/_custom_type_script = "uid://dtrnflxsh30le"

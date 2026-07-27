@@ -15,7 +15,11 @@ const TILE_SIZE := Vector2(16, 16)
 @export var glow: Sprite2D
 @export var camera: Camera2D
 @export var speech: Label
+@export var thanks : Label
 @export var direction_indicator: Sprite2D
+
+@export var explode_sfx : AudioStreamPlayer
+@export var win_sfx : AudioStreamPlayer
 
 var active_going: Vector2 = Vector2.ZERO
 var has_spoken: bool = false
@@ -74,12 +78,14 @@ func die() -> void:
 	sprite.hide()
 	particles.emitting = true
 	camera.camera_shake(5.0, 0.6)
+	explode_sfx.play()
 	_pulse_glow()
 
 
 func win() -> void:
 	winned.emit()
 	camera.camera_shake(5.0, 0.6)
+	win_sfx.play()
 	_pulse_glow()
 
 
@@ -230,6 +236,12 @@ func dash_right():
 	_move_to(Vector2(2, 0), move_time)
 
 func down():
+	sprite.play("down")
 	if tilemap.get_cell_atlas_coords(tile_position + Vector2(0, 1)) == Vector2i(15, 10) or\
 		tilemap.get_cell_atlas_coords(tile_position + Vector2(0, 1)) == Vector2i(16, 10):
 		_move_to(Vector2(0, 1), move_time)
+
+func heart():
+	thanks.scale = Vector2(0.01, 0.01)
+	thanks.show()
+	_tween_scale(thanks, Vector2(1, 1), 0.5, Tween.EASE_OUT, Tween.TRANS_CUBIC)

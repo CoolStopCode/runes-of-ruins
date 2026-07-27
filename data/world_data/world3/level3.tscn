@@ -7,6 +7,10 @@
 [ext_resource type="Resource" uid="uid://ckaiu1jonxgw5" path="res://data/rune_structures/dash_right_rune_structure.tres" id="5_2jb0n"]
 [ext_resource type="Resource" uid="uid://cgkj65t5bf2uj" path="res://data/rune_structures/left_rune_structure.tres" id="6_qd8gw"]
 [ext_resource type="Resource" uid="uid://c871anbojua8k" path="res://data/rune_structures/win_rune_structure.tres" id="7_eqxmd"]
+[ext_resource type="Texture2D" uid="uid://cnyddfl4b0x1o" path="res://world/art/detail1.png" id="8_5p172"]
+[ext_resource type="Texture2D" uid="uid://dtxc6uuww4nak" path="res://world/art/detail2.png" id="9_uowe0"]
+[ext_resource type="Texture2D" uid="uid://ilxdw4112ndv" path="res://world/art/detail4.png" id="10_c41ka"]
+[ext_resource type="Texture2D" uid="uid://wclwr35s3oyi" path="res://world/art/detail3.png" id="11_0d362"]
 
 [node name="level2" type="Node2D" unique_id=774963730 node_paths=PackedStringArray("tilemap", "mini_runes")]
 script = ExtResource("1_u5bel")
@@ -45,3 +49,111 @@ count = -1
 position = Vector2(400, -16)
 rune_structure = ExtResource("7_eqxmd")
 count = 1
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1964236465]
+
+[node name="Detail1" type="Sprite2D" parent="Node2D" unique_id=538491932]
+texture_filter = 1
+position = Vector2(35, 20)
+texture = ExtResource("8_5p172")
+
+[node name="Detail2" type="Sprite2D" parent="Node2D" unique_id=1783176614]
+texture_filter = 1
+position = Vector2(45, -12)
+texture = ExtResource("9_uowe0")
+
+[node name="Detail4" type="Sprite2D" parent="Node2D" unique_id=32201182]
+texture_filter = 1
+position = Vector2(129, -12)
+texture = ExtResource("10_c41ka")
+
+[node name="Detail3" type="Sprite2D" parent="Node2D" unique_id=2069951506]
+texture_filter = 1
+position = Vector2(122, -12)
+texture = ExtResource("9_uowe0")
+
+[node name="Detail5" type="Sprite2D" parent="Node2D" unique_id=199902614]
+texture_filter = 1
+position = Vector2(145, -28)
+texture = ExtResource("11_0d362")
+
+[node name="Detail6" type="Sprite2D" parent="Node2D" unique_id=387711265]
+texture_filter = 1
+position = Vector2(208, -12)
+texture = ExtResource("8_5p172")
+
+[node name="Detail7" type="Sprite2D" parent="Node2D" unique_id=990134074]
+texture_filter = 1
+position = Vector2(220, 4)
+texture = ExtResource("9_uowe0")
+
+[node name="Detail8" type="Sprite2D" parent="Node2D" unique_id=1291401972]
+texture_filter = 1
+position = Vector2(307, -124)
+texture = ExtResource("11_0d362")
+
+[node name="Detail9" type="Sprite2D" parent="Node2D" unique_id=920748709]
+texture_filter = 1
+position = Vector2(299, -124)
+texture = ExtResource("8_5p172")
+
+[node name="Detail10" type="Sprite2D" parent="Node2D" unique_id=999083991]
+texture_filter = 1
+position = Vector2(276, -75)
+texture = ExtResource("10_c41ka")
+
+[node name="Detail11" type="Sprite2D" parent="Node2D" unique_id=2007493541]
+texture_filter = 1
+position = Vector2(286, -76)
+texture = ExtResource("9_uowe0")
+
+[node name="Detail12" type="Sprite2D" parent="Node2D" unique_id=76199933]
+texture_filter = 1
+position = Vector2(322, -28)
+texture = ExtResource("9_uowe0")
+flip_h = true
+
+[node name="Detail13" type="Sprite2D" parent="Node2D" unique_id=1800992981]
+texture_filter = 1
+position = Vector2(466, -76)
+texture = ExtResource("9_uowe0")
+
+[node name="Detail14" type="Sprite2D" parent="Node2D" unique_id=1331611388]
+texture_filter = 1
+position = Vector2(420, -76)
+texture = ExtResource("10_c41ka")
+
+[node name="Detail15" type="Sprite2D" parent="Node2D" unique_id=936073139]
+texture_filter = 1
+position = Vector2(540, -108)
+texture = ExtResource("8_5p172")
+
+[node name="Detail16" type="Sprite2D" parent="Node2D" unique_id=304989554]
+texture_filter = 1
+position = Vector2(532, -76)
+texture = ExtResource("11_0d362")
+
+[node name="Detail17" type="Sprite2D" parent="Node2D" unique_id=829805956]
+texture_filter = 1
+position = Vector2(486, -12)
+texture = ExtResource("9_uowe0")
+
+[node name="Detail18" type="Sprite2D" parent="Node2D" unique_id=1524254061]
+texture_filter = 1
+position = Vector2(440, -12)
+texture = ExtResource("11_0d362")
+
+[node name="Detail19" type="Sprite2D" parent="Node2D" unique_id=957722953]
+texture_filter = 1
+position = Vector2(380, -12)
+texture = ExtResource("8_5p172")
+
+[node name="Detail20" type="Sprite2D" parent="Node2D" unique_id=1187699971]
+texture_filter = 1
+position = Vector2(448, -12)
+texture = ExtResource("9_uowe0")
+
+[node name="Detail21" type="Sprite2D" parent="Node2D" unique_id=497812145]
+texture_filter = 1
+position = Vector2(397, -12)
+texture = ExtResource("11_0d362")

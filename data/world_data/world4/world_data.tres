@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WorldData" format=3 uid="uid://dkqtyn3fncqiw"]
+
+[ext_resource type="AudioStream" uid="uid://dj3jdksqsoa8q" path="res://data/world_data/world4/happy.mp3" id="1_6nyvq"]
+[ext_resource type="Resource" uid="uid://v5nfpdl7ysjh" path="res://data/world_data/world4/palette.tres" id="1_xqsnt"]
+[ext_resource type="PackedScene" uid="uid://4p750y682ea1" path="res://data/world_data/world4/level4.tscn" id="2_3pqdi"]
+[ext_resource type="Script" uid="uid://d2ev3bj2sodq0" path="res://world/world_data.gd" id="2_6nyvq"]
+
+[resource]
+script = ExtResource("2_6nyvq")
+index = 4
+palette = ExtResource("1_xqsnt")
+workspace_length = 99
+level = ExtResource("2_3pqdi")
+player_start = Vector2(0, -2)
+clock_interval = 1.1400000000000001
+audio = ExtResource("1_6nyvq")
+offset = 0.62
+metadata/_custom_type_script = "uid://d2ev3bj2sodq0"

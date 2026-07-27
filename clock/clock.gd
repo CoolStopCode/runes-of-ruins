@@ -1,13 +1,10 @@
 class_name Clock
 extends Node
-
 signal clock
 signal half_clock
-
 var time: float = 0.0
 var active: bool = false
 var half_clock_emitted: bool = false
-
 @export var clock_interval: float
 @export var audio: AudioStream
 @export var audio_player: AudioStreamPlayer
@@ -33,19 +30,22 @@ func start():
 	var tween := get_tree().create_tween()
 	tween.tween_property(audio_player, "volume_linear", 1.0, audio_fade_in)
 	audio_player.play(audio_offset)
-
+	
 func stop():
+	active = false
+	
+func fade_out(duration : float) -> void:
+	var tween := get_tree().create_tween()
+	tween.tween_property(audio_player, "volume_linear", 0.0, duration)
+	tween.tween_callback(audio_player.stop)
 	active = false
 
 func _process(delta: float) -> void:
 	if not active: return
-
 	time += delta
-
 	if not half_clock_emitted and time >= clock_interval / 2.0:
 		half_clock_emitted = true
 		half_clock.emit()
-
 	if time >= clock_interval:
 		time -= clock_interval
 		half_clock_emitted = false

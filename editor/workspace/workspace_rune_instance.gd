@@ -10,6 +10,7 @@ extends Control
 @export var label : Label
 @export var empty_texture : Texture
 @export var particles : GPUParticles2D
+@export var plop : AudioStreamPlayer
 
 var executed : bool
 var locked : bool
@@ -51,6 +52,10 @@ func _on_gui_input(event: InputEvent) -> void:
  
 func execute(player : Player):
 	executed = true
+	
+	if rune_structure:
+		plop.pitch_scale = randf_range(0.8, 1.2)
+		#plop.play()
 	
 	effect.show()
 	effect.modulate.a = 1.0

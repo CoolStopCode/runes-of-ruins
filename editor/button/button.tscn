@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://cr42p60iiownv" path="res://editor/button/button.gd" id="1_e84kj"]
 [ext_resource type="Texture2D" uid="uid://b23pm1053u1c7" path="res://data/rune_textures/jump_rune.png" id="1_gkyqv"]
 [ext_resource type="Texture2D" uid="uid://b6g3v5q062aag" path="res://editor/outline.png" id="3_wqeih"]
+[ext_resource type="AudioStream" uid="uid://bm1rrt77cubhy" path="res://editor/button/reset.mp3" id="4_wqeih"]
 
-[node name="button" type="Control" unique_id=187289141 node_paths=PackedStringArray("texture_rect", "outline")]
+[node name="button" type="Control" unique_id=187289141 node_paths=PackedStringArray("texture_rect", "outline", "click_sfx")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_e84kj")
 texture_rect = NodePath("TextureRect")
 outline = NodePath("outline")
+click_sfx = NodePath("click")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=765998979]
 texture_filter = 1
@@ -36,6 +38,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_wqeih")
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=359786908]
+stream = ExtResource("4_wqeih")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

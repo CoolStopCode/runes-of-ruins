@@ -30,11 +30,12 @@ scale_curve = SubResource("CurveTexture_8lteu")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = -2.2351742e-08
 
-[node name="mini_rune" type="Area2D" unique_id=288184284 node_paths=PackedStringArray("sprite", "particles", "label")]
+[node name="mini_rune" type="Area2D" unique_id=288184284 node_paths=PackedStringArray("sprite", "particles", "label", "collision")]
 script = ExtResource("1_q8xxl")
 sprite = NodePath("Sprite2D")
 particles = NodePath("particles")
 label = NodePath("Label")
+collision = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1135236671]
 shape = SubResource("RectangleShape2D_m3rnk")
